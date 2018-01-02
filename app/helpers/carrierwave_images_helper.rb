@@ -1,0 +1,2 @@
+module CarrierwaveImagesHelper
+end
