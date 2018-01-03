@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'When the Admin User navigates to dog new form' do
   context 'the Admin User can see the form' do
     it 'the Admin User can create a dog' do
-      visit new_dog_path
+      visit new_admin_dog_path
 
       fill_in "dog[name]", with: "Fido"
       fill_in "dog[breed]", with: "German Shepard"
@@ -14,9 +14,6 @@ describe 'When the Admin User navigates to dog new form' do
       fill_in "dog[description]", with: "Good with cats and kids."
       fill_in "dog[price]", with: 100
       click_link_or_button 'Create Dog'
-
-      @dog = Dog.last
-      @dog.image.create!(asset: "Hello")
 
       expect(current_path).to eq(dog_path(@dog))
 
