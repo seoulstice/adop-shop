@@ -1,0 +1,33 @@
+<div class="">
+  <h1>List a Dog for Adoption</h1>
+  <section>
+    <%= form_for @dog do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :breed %>
+      <%= f.text_field :breed %>
+
+      <%= f.label :size %>
+      <%= f.select :size, [["Small", 0],["Medium", 1], ["Large", 2]] %>
+
+      <%= f.label :weight %>
+      <%= f.text_field :weight %>
+
+      <%= f.label :cat_friendly %>
+      <%= f.check_box :cat_friendly %>
+
+      <%= f.label :gender %>
+      <%= f.select :gender, [["Male", 0],["Female", 1]] %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+
+      <%= f.submit %>
+    <% end %>
+  </section>
+</div>
