@@ -9,7 +9,17 @@
   </head>
 
   <body>
-    <%= link_to "CarrierWave", carrierwave_images_path %>
+
+  <nav>
+    <%= link_to "Cart", cart_path %>
+  </nav>
+
+  <% flash.each do |type, message| %>
+    <%= content_tag :div, message, class: type %>
+  <% end %>
+
+  <p>Cart: <%= @cart.total_count %>  </p>
+
     <%= yield %>
   </body>
 </html>

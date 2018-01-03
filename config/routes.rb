@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     resources :carrierwave_images
   end
 
+  resources :carts, only: [:create]
+
   post '/dogs', to: "admin/dogs#create"
   delete '/dogs', to: "admin/dogs#destroy"
+
+  get '/cart', to: "carts#show"
 
 end
