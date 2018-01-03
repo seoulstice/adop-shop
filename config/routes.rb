@@ -3,9 +3,12 @@ Rails.application.routes.draw do
 
   resources :dogs, only: [:index, :show]
 
-  namespace :admin do
-    resources :dogs, only: [:new, :create, :destroy]
-    resources :carrierwave_images, only: [:new, :create, :destroy]
+  namespace :admin, only: [:new] do
+    resources :dogs
+    resources :carrierwave_images
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  post '/dogs', to: "admin/dogs#create"
+  delete '/dogs', to: "admin/dogs#destroy"
+
 end

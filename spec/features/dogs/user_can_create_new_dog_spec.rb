@@ -3,6 +3,9 @@ require 'rails_helper'
 describe 'When the Admin User navigates to dog new form' do
   context 'the Admin User can see the form' do
     it 'the Admin User can create a dog' do
+      admin = create(:user, role: 1)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
       visit new_admin_dog_path
 
       fill_in "dog[name]", with: "Fido"
@@ -15,8 +18,9 @@ describe 'When the Admin User navigates to dog new form' do
       fill_in "dog[price]", with: 100
       click_link_or_button 'Create Dog'
 
-      expect(current_path).to eq(dog_path(@dog))
+      @dog = Dog.last
 
+      expect(current_path).to eq(dog_path(@dog))
       expect(page).to have_content("Fido")
       expect(page).to have_content("German Shepard")
       expect(page).to have_content("Medium")
