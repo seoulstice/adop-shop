@@ -5,7 +5,7 @@ class DogsController < ApplicationController
   end
 
   def show
-    @dog = Dog.find(params[:id])
+    @dog = Dog.find_by(slug: params[:id])
   end
 
   private
