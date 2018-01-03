@@ -6,7 +6,7 @@ CATEGORIES = ["Sporting Dogs", "Hounds", "Working Dogs", "Terriers", "Toys", "No
 BREED = ["German Shepard", "Labrador", "Beagle", "Golden Retriever", "Poodle", "Pug"]
 SIZE = ["Small", "Medium", "Large"]
 CAT_FRIENDLY = ["True", "False"]
-GENDER = ["MALE", "FEMALE"]
+GENDER = ["Male", "Female"]
 
 CATEGORIES.each do |title|
   Category.create!(title: title)
