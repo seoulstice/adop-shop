@@ -2,8 +2,9 @@ require 'rails_helper'
 
 describe "a visitor visits dog index page" do
   it "a user can see all dogs" do
-    dog1 = create(:dog)
-    dog2 = create(:dog)
+    category = create(:category)
+    dog1 = create(:dog, category_id: category.id)
+    dog2 = create(:dog, category_id: category.id)
 
     visit dogs_path
 
