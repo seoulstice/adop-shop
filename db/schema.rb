@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20180103011614) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "carrierwave_images_id"
+    t.index ["carrierwave_images_id"], name: "index_dogs_on_carrierwave_images_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,4 +47,5 @@ ActiveRecord::Schema.define(version: 20180103011614) do
   end
 
   add_foreign_key "carrierwave_images", "dogs"
+  add_foreign_key "dogs", "carrierwave_images", column: "carrierwave_images_id"
 end
