@@ -13,6 +13,7 @@
   Subtotal: <%= dog.price * quantity %>
   <%= button_to "Remove Dog", cart_path(dog_id: dog.id), method: :delete %>
 <% end %>
+<%= link_to "Login or Create Account to Checkout", login_path  %>
 
 <h2>Total Price</h2>
 <p> <%= @cart.total_price %> </p>
