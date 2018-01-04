@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :dogs, only: [:index, :show, :create, :destroy]
 
+  resources :categories, only: [:show]
+
   namespace :admin, only: [:new] do
     resources :dogs
     resources :carrierwave_images
