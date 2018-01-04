@@ -1,7 +1,7 @@
 <div class="">
   <h1>List a Dog for Adoption</h1>
   <section>
-    <%= form_for @dog do |f| %>
+    <%= form_for [:admin, @dog] do |f| %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>
