@@ -1,4 +1,4 @@
 
 <% @categories.each do |category| %>
-  <%= link_to "#{category.title}", category_path(category.slug)%>
+  <%= link_to "#{category.title}", "/#{category.slug}"%>
 <% end %>
