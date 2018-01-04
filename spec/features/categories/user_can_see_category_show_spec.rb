@@ -6,14 +6,13 @@ describe 'When the User navigates to category show page' do
     dog1 = create(:dog, category: category)
     dog2 = create(:dog, category: category)
 
-    visit category_path(category)
-
+    visit category_path(category.slug)
     expect(page).to have_content(dog1.name)
-    expect(page).to have_content(dog1.description)
+    expect(page).to have_content(dog1.breed)
     expect(page).to have_content(dog1.price)
 
     expect(page).to have_content(dog2.name)
-    expect(page).to have_content(dog2.description)
+    expect(page).to have_content(dog2.breed)
     expect(page).to have_content(dog2.price)
 
 

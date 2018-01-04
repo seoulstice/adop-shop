@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'When the Admin User navigates to dog new form' do
   context 'the Admin User can see the form' do
-    xit 'the Admin User can create a dog' do
+    it 'the Admin User can create a dog' do
       admin = create(:user, role: 1)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
