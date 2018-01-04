@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :carrierwave_images, only: [:index, :show]
 
-  resources :dogs, only: [:index, :show]
+  resources :dogs, only: [:index, :show, :create, :destroy]
 
   namespace :admin, only: [:new] do
     resources :dogs
@@ -13,9 +13,7 @@ Rails.application.routes.draw do
 
   resources :carts, only: [:create]
 
-  post '/dogs', to: "admin/dogs#create"
-  delete '/dogs', to: "admin/dogs#destroy"
-
   get '/cart', to: "carts#show"
+  delete '/cart', to: "carts#destroy"
 
 end

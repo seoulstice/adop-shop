@@ -1,10 +1,11 @@
 <% @cart.contents.each do |dog_id, quantity| %>
   <% dog = @cart.find_dog(dog_id) %>
+  <%= image_tag("https://images.unsplash.com/photo-1433162653888-a571db5ccccf?auto=format&fit=crop&w=1500&q=80") %>
   Quantity: <%= quantity %>
   Name: <%= dog.name %>
   Breed: <%= dog.breed %>
   Price: <%= dog.price %>
-  <%= image_tag("https://images.unsplash.com/photo-1433162653888-a571db5ccccf?auto=format&fit=crop&w=1500&q=80") %>
+  <%= button_to "Remove Dog", cart_path(dog_id: dog.id), method: :delete %>
 <% end %>
 
 <h2>Total Price</h2>

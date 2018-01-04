@@ -3,15 +3,22 @@ class CartsController < ApplicationController
 
   def create
     dog = Dog.find(params[:dog_id])
-    @cart = Cart.new(session[:cart])
     @cart.add_dog(dog.id)
     session[:cart] = @cart.contents
     flash[:notice] = "You now have #{pluralize(@cart.count_of(dog.id), dog.name)} in your cart"
-    redirect_to dogs_path 
+    redirect_back(fallback_location: dogs_path)
   end
 
-  def show 
-    
-  end 
+  def show
+
+  end
+
+  def destroy
+    dog = Dog.find(params[:dog_id])
+    @cart.remove_dog(dog.id)
+    session[:cart] = @cart.contents
+    flash[:notice] = %Q[Successfully removed #{view_context.link_to "#{dog.name}", "#{dog_path(dog.slug)}"} from your cart.]
+    redirect_back(fallback_location: cart_path)
+  end
 
 end
