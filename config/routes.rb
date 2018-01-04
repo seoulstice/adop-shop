@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   resources :dogs, only: [:index, :show, :create, :destroy]
 
-  resources :categories, only: [:show, :index]
+  resources :categories, only: [:index]
+  get '/:slug', to: "categories#show"
 
   namespace :admin, only: [:new] do
     resources :dogs
