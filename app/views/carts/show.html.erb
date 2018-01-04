@@ -3,7 +3,7 @@
   <%= image_tag("https://images.unsplash.com/photo-1433162653888-a571db5ccccf?auto=format&fit=crop&w=1500&q=80", class: "thumbnail") %>
   <%= form_tag(cart_path, method: :put) do %>
     <%= label_tag "Quantity" %>
-    <%= number_field_tag("quantity", "#{quantity}") %>
+    <%= number_field_tag("quantity", "#{quantity}", min: 1) %>
     <%= hidden_field_tag :dog_id, dog.id %>
     <%= submit_tag("Update Quantity") %>
   <% end %>
