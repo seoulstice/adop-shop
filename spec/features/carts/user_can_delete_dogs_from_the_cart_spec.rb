@@ -14,8 +14,8 @@ describe "a user can delete dogs from the cart" do
     expect(current_path).to eq(cart_path)
 
     click_button "Remove Dog"
-    save_and_open_page
-    expect(page).to have_content("You successfully removed #{@dog.name} from your cart. Undo?")
+
+    expect(page).to have_content("Successfully removed #{@dog.name} from your cart.")
 
     expect(page).to_not have_content("#{@dog.breed}")
   end
