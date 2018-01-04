@@ -16,7 +16,11 @@ describe "a user logs in" do
 
           click_on "Log In"
 
-          expect(current_path).to eq(dogs_path)
+          expect(current_path).to eq(dashboard_path)
+          expect(page).to have_content("Logged in as #{user.username}")
+          expect(page).to have_link("View Your Cart")
+          expect(page).to_not have_link("Login")
+          expect(page).to have_link("Logout")
         end
       end
     end

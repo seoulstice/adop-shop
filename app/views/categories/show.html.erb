@@ -1,7 +1,11 @@
-<% @dogs.each do |dog| %>
+<h1><%= @category.title %></h1>
+
+
+<% @category.dogs.each do |dog| %>
+
   <%= dog.name %>
   <%= dog.breed %>
   <%= dog.price %>
   <%= image_tag("https://images.unsplash.com/photo-1433162653888-a571db5ccccf?auto=format&fit=crop&w=1500&q=80", class: "thumbnail") %>
-  <%= button_to "Add Dog", carts_path(dog_id: dog.id) %>
+
 <% end %>

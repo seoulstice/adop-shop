@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180103213421) do
+ActiveRecord::Schema.define(version: 20180104201712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180103213421) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   create_table "dogs", force: :cascade do |t|
@@ -40,10 +41,8 @@ ActiveRecord::Schema.define(version: 20180103213421) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "carrierwave_images_id"
     t.bigint "category_id"
     t.string "slug"
-    t.index ["carrierwave_images_id"], name: "index_dogs_on_carrierwave_images_id"
     t.index ["category_id"], name: "index_dogs_on_category_id"
   end
 
@@ -56,6 +55,5 @@ ActiveRecord::Schema.define(version: 20180103213421) do
   end
 
   add_foreign_key "carrierwave_images", "dogs"
-  add_foreign_key "dogs", "carrierwave_images", column: "carrierwave_images_id"
   add_foreign_key "dogs", "categories"
 end

@@ -12,12 +12,14 @@
 
   <nav>
     <% if logged_in? %>
+      <p>Logged in as <%= current_user.username %></p>
       <%= link_to "Logout", logout_path %>
     <% else %>
       <%= link_to "Sign Up", new_user_path %>
       <%= link_to "Login", login_path %>
-    <%= end %>
+    <% end %>
     <%= link_to "Cart", cart_path %>
+
   </nav>
 
   <% flash.each do |type, message| %>
