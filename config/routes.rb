@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :carrierwave_images
   end
 
+  resources :users, only: [:new, :create]
+
   resources :carts, only: [:create]
 
   get '/cart', to: "carts#show"
