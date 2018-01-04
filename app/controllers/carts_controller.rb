@@ -21,4 +21,9 @@ class CartsController < ApplicationController
     redirect_back(fallback_location: cart_path)
   end
 
+  def update
+    @cart.contents[params[:dog_id]] = params[:quantity].to_i
+    redirect_to cart_path
+  end
+
 end
