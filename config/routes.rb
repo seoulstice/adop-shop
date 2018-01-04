@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   delete '/dogs', to: "admin/dogs#destroy"
 
   get '/cart', to: "carts#show"
+  delete '/cart', to: "carts#destroy"
 
 end
