@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   helper_method :current_admin?
   helper_method :set_cart
-  
+
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -20,7 +20,10 @@ class ApplicationController < ActionController::Base
     current_user && current_user.admin?
   end
 
-  def set_cart  
+  def set_cart
     @cart ||= Cart.new(session[:cart])
   end
+
+
+
 end
