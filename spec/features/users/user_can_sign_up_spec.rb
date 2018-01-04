@@ -7,16 +7,26 @@ describe "a user can sign up" do
         it "a new user account is created" do
           visit "/"
 
-          click_on "Sign Up"
+          click_on "Login"
+
+          expect(current_path).to eq(login_path)
+
+          click_on "Create Account"
 
           expect(current_path).to eq(new_user_path)
 
           fill_in "user[username]", with: "puppypaws"
           fill_in "user[password]", with: "donothackin"
-
           click_on "Create User"
 
-          expect(current_path).to eq(dogs_path)
+          save_and_open_page
+          user = User.last
+
+          expect(current_path).to eq(dashboard_path)
+          expect(page).to have_content("Logged in as #{user.username}")
+          expect(page).to_not have_link("Login")
+          expect(page).to have_link("Logout")
+          expect(page).to have_link("View My Cart")
 
         end
       end
