@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :dogs, only: [:index, :show, :create, :destroy]
 
   resources :categories, only: [:index]
-  get '/:slug', to: "categories#show"
 
   namespace :admin, only: [:new] do
     resources :dogs
@@ -27,4 +26,5 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/dashboard", to: "users#show"
 
+  get '/:slug', to: "categories#show"
 end
