@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user do
     password "password"
-    username "blank"
+    sequence(:username) {|n| "username#{n}"}
     role 0
   end
 end
