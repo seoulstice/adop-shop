@@ -17,13 +17,16 @@ Rails.application.routes.draw do
 
   resources :carts, only: [:create]
 
-  resources :order, only: [:show]
-
   get '/cart', to: "carts#show"
   delete '/cart', to: "carts#destroy"
   put '/cart', to: "carts#update"
 
   get "/dashboard", to: "users#show"
+
+  get "/orders", to: "orders#index", as: "orders"
+  get "/orders/:id", to: "orders#show", as: "order"
+
+  
 
   controller :sessions do
     get "/login" => :new
@@ -31,5 +34,5 @@ Rails.application.routes.draw do
     delete "/logout" => :destroy
   end
 
-  get '/:slug', to: "categories#show"
+  get '/:slug', to: "categories#show", as: "category"
 end

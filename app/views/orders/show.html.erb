@@ -1,0 +1,22 @@
+<h1>Order <%= @order.id %></h1>
+
+
+  <% @order.order_dogs.each do |order_dog|%>
+    <%= order_dog.dog.name %>
+    <%= order_dog.quantity %>
+    <%= order_dog.order.status %>
+
+    <% if order_dog.order.completed? %>
+      <%= order_dog.order.updated_at %>
+    <% end %>
+
+    <%= order_dog.quantity.to_i  * order_dog.dog.price %>
+ 
+    <%= order_dog.order.created_at %>
+
+
+    
+  <% end %>
+
+
+
