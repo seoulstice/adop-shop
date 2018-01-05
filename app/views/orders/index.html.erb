@@ -1,0 +1,7 @@
+<% current_user.orders.each do |order|  %>
+  <%= link_to "Order #{order.id}", order_path(order)  %> 
+  <%= order.status %>
+  <%= order.address %>
+  <%= order.purchaser %>
+  <%= order.readable_date %>
+<% end %>

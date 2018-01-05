@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :order do
     status 0
-    address "MyString"
+    sequence(:address) {|n| "street#{n}"}
     user nil
-    purchaser "MyString"
+    sequence(:purchaser) {|n| "purchaser#{n}"}
   end
 end

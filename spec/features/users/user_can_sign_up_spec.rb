@@ -19,14 +19,14 @@ describe "a user can sign up" do
           fill_in "user[password]", with: "donothackin"
           click_on "Create User"
 
-          save_and_open_page
+          
           user = User.last
 
           expect(current_path).to eq(dashboard_path)
           expect(page).to have_content("Logged in as #{user.username}")
           expect(page).to_not have_link("Login")
           expect(page).to have_link("Logout")
-          expect(page).to have_link("View My Cart")
+          expect(page).to have_link("View Your Cart")
 
         end
       end
