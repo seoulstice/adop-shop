@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_admin?
   helper_method :set_cart
   helper_method :all_categories
+  
 
 
   def current_user
