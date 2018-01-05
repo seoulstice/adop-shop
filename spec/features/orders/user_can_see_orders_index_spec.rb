@@ -10,7 +10,7 @@ describe "When the User navigates to Orders index" do
     order = create(:order, user: user, status: "Paid")
     order2 = create(:order, user: user2, status: "Canceled")
 
-    visit order_path
+    visit orders_path
 
     expect(page).to have_link("Order #{order.id}")
     expect(page).to have_content(order.status)

@@ -23,7 +23,9 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "users#show"
 
-  get "/orders", to: "orders#index", as: "order"
+  get "/orders", to: "orders#index", as: "orders"
+  get "/orders/:id", to: "orders#show", as: "order"
+
   
 
   controller :sessions do
