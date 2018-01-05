@@ -19,7 +19,6 @@ describe "when a user visits the orders index" do
       expect(page).to have_content(order.order_dogs.first.quantity)
       expect(page).to have_content("Order #{order.id}")
       expect(page).to have_content(order.status)
-      # expect(page).to have_content(order.total_price)
       expect(page).to have_content(order.created_at)
       expect(page).to_not have_content(order.updated_at)
     end 
@@ -40,7 +39,6 @@ describe "when a user visits the orders index" do
       expect(page).to have_content(order.order_dogs.first.quantity)
       expect(page).to have_content("Order #{order.id}")
       expect(page).to have_content(order.status)
-      # expect(page).to have_content(order.total_price)
       expect(page).to have_content(order.created_at)
       expect(page).to have_content(order.updated_at)
     end   
