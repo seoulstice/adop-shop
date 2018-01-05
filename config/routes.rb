@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :dogs, only: [:index, :show, :create, :destroy]
 
-  resources :categories, only: [:show]
+  resources :categories, only: [:index]
 
   namespace :admin, only: [:new] do
     resources :dogs
@@ -17,13 +17,19 @@ Rails.application.routes.draw do
 
   resources :carts, only: [:create]
 
+  resources :order, only: [:show]
+
   get '/cart', to: "carts#show"
   delete '/cart', to: "carts#destroy"
   put '/cart', to: "carts#update"
 
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
   get "/dashboard", to: "users#show"
 
+  controller :sessions do
+    get "/login" => :new
+    post "/login" => :create
+    delete "/logout" => :destroy
+  end
+
+  get '/:slug', to: "categories#show"
 end
