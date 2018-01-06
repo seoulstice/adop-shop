@@ -13,7 +13,7 @@ describe "As a logged in Admin User" do
 
       click_link("Edit Account")
 
-      expect(current_path).to eq(edit_user_path(@admin))
+      expect(current_path).to eq(edit_admin_user_path(@admin))
       expect(page).to have_field("user[username]")
       expect(page).to have_field("user[password]")
       expect(page).to have_field("user[address]")
@@ -27,10 +27,11 @@ describe "As a logged in Admin User" do
 
       click_link("Edit Account")
 
-      expect(current_path).to eq(edit_user_path(@admin))
+      expect(current_path).to eq(edit_admin_user_path(@admin))
       fill_in "user[name]", with: "Unique New Name"
 
       click_button("Edit Account")
+
       expect(current_path).to eq(admin_dashboard_path)
       expect(page).to have_content("Unique New Name")
     end
