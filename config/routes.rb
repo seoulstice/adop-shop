@@ -23,10 +23,7 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "users#show"
 
-  get "/orders", to: "orders#index", as: "orders"
-  get "/orders/:id", to: "orders#show", as: "order"
-
-  
+  resources :orders, only: [:index, :show, :create]
 
   controller :sessions do
     get "/login" => :new

@@ -7,6 +7,7 @@ FactoryBot.define do
     cat_friendly [true,false].sample
     gender [0,1].sample
     description "Woof woof"
-    price [50,100,150].sample 
+    price [50,100,150].sample
+    retired false
   end
 end
