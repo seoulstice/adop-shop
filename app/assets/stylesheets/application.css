@@ -11,10 +11,26 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ 
+ *= require marketing-minimal
+ *= require toolkit-minimal
  *= require_self
  */
 
 .thumbnail {
-  height: 64px;
-  width: 64px;
+  height: 300px;
+  width: 300px;
 }
+
+.jumbotron{
+  background-image: url(doggo.png);
+  background-size: cover;
+  color: white;
+  padding-bottom: 250px;
+}
+
+.navbar-default{
+  margin-bottom: 0px;
+}
+
+
