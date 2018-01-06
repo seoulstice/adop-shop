@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :admin, only: [:new] do
     resources :dogs
     resources :carrierwave_images
+    get "/dashboard", to: "users#show"
   end
 
   resources :users, only: [:new, :create]
