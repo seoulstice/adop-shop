@@ -17,13 +17,4 @@
 
 <h2>Total Price</h2>
 <p> <%= @cart.total_price %> </p>
-
-<%= form_for @order, url: "/orders", method: :post do |f| %>
-  <%= f.label "Full Name"  %>
-  <%= f.text_field :purchaser %>
-
-  <%= f.label :address  %>
-  <%= f.text_field :address %>
-
-  <%= f.submit "Checkout" %>
-<% end %>
+<%= button_to "Checkout", orders_path, method: :post %>
