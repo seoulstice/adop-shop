@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get "/dashboard", to: "users#show"
   end
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :edit, :update]
 
   resources :carts, only: [:create]
 

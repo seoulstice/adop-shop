@@ -1,1 +1,7 @@
 <h1>Admin Dashboard</h1>
+<%= current_user.username %>
+<%= current_user.name %>
+<%= current_user.address %>
+<%= current_user.role %>
+
+<%= link_to "Edit Account", edit_user_path(current_user) %>
