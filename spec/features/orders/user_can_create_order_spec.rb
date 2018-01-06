@@ -23,13 +23,12 @@ describe "as a visitor when I have items in my cart" do
 
       visit cart_path
 
-      fill_in "order[purchaser]", with: "Bilbo Baggins"
-      fill_in "order[address]", with: "The Shire"
-
       click_button "Checkout"
       expect(current_path).to eq(orders_path)
 
       expect(page).to have_content("Order was successfully placed")
+
+      order = Order.last
 
       expect(page).to have_content(order.purchaser)
       expect(page).to have_content(order.status)
