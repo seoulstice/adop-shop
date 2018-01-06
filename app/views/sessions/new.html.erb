@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xs-12">
           <h1>Login</h1>
-          <p>Fill in the form below to sign in or <%= link_to "Create Account", new_user_path  %> </p> 
+          <p>Fill in the form below to sign in or <%= link_to "Create Account", new_user_path  %> </p>
         </div>
     </div>
 </div>
@@ -15,25 +15,18 @@
           <%= form_tag do %>
 
             <%= label_tag :username %>
-            <%= text_field_tag "user[user_name]", :username, :class => "form-control" %>
+            <%= text_field_tag :username %>
 
             <%= label_tag :password %>
-            <%= password_field_tag "user[password]", :password, :class => "form-control" %>
+            <%= password_field_tag :password %>
 
 
 
             <%= submit_tag "Log In", :class => 'btn btn-sm btn-primary',style: 'float:right; margin-top: 40px;'%>
 
           <% end %>
-        
-      
+
+
         </div>
     </div>
 </div>
-
-
-
-
-
-
-

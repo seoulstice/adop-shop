@@ -9,7 +9,11 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash.notice = "Welcome to Adop Shop"
-      redirect_to dashboard_path
+      if current_admin?
+        redirect_to admin_dashboard_path
+      else
+        redirect_to dashboard_path
+      end
     else
       render :new
     end
