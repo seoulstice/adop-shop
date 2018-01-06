@@ -17,11 +17,6 @@
  *= require_self
  */
 
-.thumbnail {
-  height: 300px;
-  width: 300px;
-}
-
 .jumbotron{
   background-image: url(doggo.png);
   background-size: cover;
@@ -32,5 +27,16 @@
 .navbar-default{
   margin-bottom: 0px;
 }
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100px);
+  grid-template-rows: repeat(1, 100px);
+  grid-gap: 10px;
+  
+  
+}
+
+
 
 
