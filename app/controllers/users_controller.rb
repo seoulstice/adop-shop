@@ -20,24 +20,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    @user = User.find(params[:id])
-    @user.update(user_params)
-    session[:user_id] = @user.id
-    binding.pry
-    if current_user.admin?
-      redirect_to admin_dashboard_path
-    else
-      redirect_to dashboard_path
-    end
-  end
-
-
-
   private
 
     def user_params

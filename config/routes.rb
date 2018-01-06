@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   namespace :admin, only: [:new] do
     resources :dogs
     resources :carrierwave_images
+    resources :users, only: [:edit, :update]
     get "/dashboard", to: "users#show"
   end
 
-  resources :users, only: [:new, :create, :edit, :update]
+  resources :users, only: [:new, :create]
 
   resources :carts, only: [:create]
 

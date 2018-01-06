@@ -1,7 +1,6 @@
 class CategoriesController < ApplicationController
 
   def show
-    # binding.pry
     @category = Category.find_by(slug: params[:slug])
   end
 
