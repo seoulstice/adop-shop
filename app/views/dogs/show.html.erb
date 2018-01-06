@@ -1,14 +1,68 @@
-<p>Name: <%= @dog.name %></p>
-<p>Breed: <%= @dog.breed %></p>
-<p>Size: <%= @dog.size %></p>
-<p>Weight: <%= @dog.weight %> lbs</p>
-<p>Cat Friendly?: <%= @dog.cat_friendly %></p>
-<p>Gender: <%= @dog.gender %></p>
-<p>Description: <%= @dog.description %></p>
-<p>Price: $<%= @dog.price %>.00</p>
-<p>Image: <%= image_tag("https://images.unsplash.com/photo-1433162653888-a571db5ccccf?auto=format&fit=crop&w=1500&q=80", class: "thumbnail") %></p>
-<% if @dog.retired == false %>
-  <%= button_to "Add Dog", carts_path(dog_id: @dog.id) %>
-<% else %>
-  <%= link_to "Dog Retired. View Other Dogs!", dogs_path %>
-<% end %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <h1> Meet <%= @dog.name %> </h1>
+          <p>Explore what makes <%= @dog.name %> unique <p>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+
+
+            
+              <div class="thumbnail">
+                <img data-src="holder.js/100%x200" alt="100%x200" src= "https://images.unsplash.com/photo-1433162653888-a571db5ccccf?auto=format&fit=crop&w=1500&q=80" data-holder-rendered="true" style="height: auto; width: 100%; display: block;">
+                <div class="caption">
+                  <div class="statcard wrapper p-a-md">
+                    <div>
+                      <h3 class="statcard-number"><%= @dog.breed %></h3>
+                      <span class="statcard-desc">Breed</span>
+                    </div>
+                    <div>
+                      <h3 class="statcard-number"><%= @dog.price %></h3>
+                      <span class="statcard-desc">Price</span>
+                    </div>
+                    <div>
+                      <h3 class="statcard-number"><%= @dog.size %></h3>
+                      <span class="statcard-desc">Size</span>
+                    </div>
+                    <div>
+                      <h3 class="statcard-number"><%= @dog.weight %></h3>
+                      <span class="statcard-desc">Weight</span>
+                    </div>
+                    <div>
+                      <h3 class="statcard-number"><%= @dog.cat_friendly.to_s.capitalize %></h3>
+                      <span class="statcard-desc">Cat friendly?</span>
+                    </div>
+                    <div>
+                      <h3 class="statcard-number"><%= @dog.gender%></h3>
+                      <span class="statcard-desc">Gender</span>
+                    </div>
+
+                      <p><%= button_to "Add Dog", carts_path(dog_id: @dog.id), :class => "btn btn-primary", style: "float:right;"%></p>
+                      <h6>About <%=@dog.name %><h6>
+                      <p><%= @dog.description %></p>
+
+                  </div>
+                  
+                  
+                 
+                  
+                </div>
+              </div>
+          
+
+        
+        
+        </div>
+    </div>
+</div>
+
+
+
+

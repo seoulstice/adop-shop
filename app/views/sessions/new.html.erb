@@ -1,14 +1,39 @@
-<h1>Log In</h1>
-<%= form_tag do %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <h1>Login</h1>
+          <p>Fill in the form below to sign in or <%= link_to "Create Account", new_user_path  %> </p> 
+        </div>
+    </div>
+</div>
 
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
 
-  <%= submit_tag "Log In"%>
+          <%= form_tag do %>
 
-<% end %>
+            <%= label_tag :username %>
+            <%= text_field_tag "user[user_name]", :username, :class => "form-control" %>
 
-<%= link_to "Create Account", new_user_path  %>
+            <%= label_tag :password %>
+            <%= password_field_tag "user[password]", :password, :class => "form-control" %>
+
+
+
+            <%= submit_tag "Log In", :class => 'btn btn-sm btn-primary',style: 'float:right; margin-top: 40px;'%>
+
+          <% end %>
+        
+      
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

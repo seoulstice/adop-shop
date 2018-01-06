@@ -1,12 +1,42 @@
-<h1>Create Account</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <h1>Sign up </h1>
+          <p>Fill in the form below to create your account or <%= link_to "login", login_path %> if you have an account</p>
+        </div>
+    </div>
+</div>
 
-<%= form_for @user do |f| %>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+        
+        
+          <%= form_for @user do |f| %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+            <%= f.label :username %>
+            <%= f.text_field :username, :class => "form-control" %>
 
-  <%= f.submit %>
-<% end %>
+
+            <%= f.label :password %>
+            <%= f.password_field :password, :class => "form-control" %>
+
+            <%= f.label :address %>
+            <%= f.text_field :address, :class => "form-control" %>
+
+            <%= f.label "Full Name" %>
+            <%= f.text_field :name, :class => "form-control" %>
+
+            <%= f.submit 'Create Account ', :class => 'btn btn-sm btn-primary',style: 'float:right; margin-top: 40px;' %>
+          <% end %>
+
+        
+        
+        
+        </div>
+    </div>
+</div>
+
+
+
