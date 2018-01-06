@@ -3,7 +3,13 @@ class OrdersController < ApplicationController
   end
 
   def show
+  
     @order = Order.find(params[:id])
+    if logged_in? && @order.user_id == current_user.id 
+      render :show
+    else
+      render file: '/public/404'
+    end
   end
 
   def create
