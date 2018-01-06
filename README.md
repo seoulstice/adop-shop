@@ -6,6 +6,9 @@
 
 # Adop Shop
 
+[![forthebadge](http://forthebadge.com/images/badges/made-with-ruby.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+
 A platfrom to allow users to adopt dogs from around the world. The scope of this project was based on [Little Shop](https://www.google.com) and fufils [these](https://www.google.com) user stories.
 
 
