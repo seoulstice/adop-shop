@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
 
   namespace :admin do
-    resources :dogs, only: [:new, :create]
+    resources :dogs, only: [:new, :create, :index, :edit, :update]
     resources :carrierwave_images, only: [:new, :create]
     resources :users, only: [:edit, :update]
     get "/dashboard", to: "users#show"
