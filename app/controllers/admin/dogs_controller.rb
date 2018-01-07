@@ -29,7 +29,7 @@ class Admin::DogsController < Admin::BaseController
   private
 
     def dog_params
-      params.require(:dog).permit(:name, :breed, :size, :weight, :cat_friendly, :gender, :description, :price, :category_id, :retired)
+      params.require(:dog).permit(:name, :breed, :size, :weight, :cat_friendly, :gender, :description, :price, :category_id, :retired, :image)
     end
 
 end
