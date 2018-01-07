@@ -1,13 +1,48 @@
-<% @dogs.each do |dog| %>
-  <%= link_to "#{dog.name}", dog_path(dog.slug) %>
-  <%= dog.breed %>
-  <%= dog.retired %>
-  <%= link_to "Edit #{dog.name}", edit_admin_dog_path(dog.slug) %>
-  <%= form_for [:admin, dog] do |f| %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+        <h4>Manage Dogs</h4>
+        <p>Update the status or edit the information for a dog on the platform</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Breed</th>
+                <th>Retired?</th>
+                <th>Edit</th>
+                <th>Update Retired</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @dogs.each do |dog| %>
+              <tr>
+                <td><%= link_to "#{dog.name}", dog_path(dog.slug) %></td>
+                <td><%= dog.breed %></td>
+                <td><%= dog.retired %></td>
+                <td><%= link_to "Edit #{dog.name}", edit_admin_dog_path(dog.slug) %></td>
+                <td>
+                  <%= form_for [:admin, dog] do |f| %>
 
-    <%= f.label :retired %>
-    <%= f.check_box :retired %>
+                   
+                    <%= f.check_box :retired %>
+                    </td>
+                    <td>
+                    <%= f.submit "Update Status", class: "btn btn-sm btn-primary" %>
+                
+                  <% end %>
+                </td>
+              </tr>
 
-    <%= f.submit "Update Status" %>
-  <% end %>
-<% end %>
+             <% end %>
+            </tbody>
+          </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
