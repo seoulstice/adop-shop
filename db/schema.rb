@@ -10,18 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180106003030) do
+ActiveRecord::Schema.define(version: 20180107051923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "carrierwave_images", force: :cascade do |t|
-    t.string "asset"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "dog_id"
-    t.index ["dog_id"], name: "index_carrierwave_images_on_dog_id"
-  end
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -44,6 +36,7 @@ ActiveRecord::Schema.define(version: 20180106003030) do
     t.bigint "category_id"
     t.string "slug"
     t.boolean "retired", default: false
+    t.string "image"
     t.index ["category_id"], name: "index_dogs_on_category_id"
   end
 
@@ -77,7 +70,6 @@ ActiveRecord::Schema.define(version: 20180106003030) do
     t.string "name"
   end
 
-  add_foreign_key "carrierwave_images", "dogs"
   add_foreign_key "dogs", "categories"
   add_foreign_key "order_dogs", "dogs"
   add_foreign_key "order_dogs", "orders"
