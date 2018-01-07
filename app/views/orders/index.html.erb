@@ -1,9 +1,34 @@
-<!--> This should be in a table<!-->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+        <h4>Your Adoption History</h4>
+        <p>An overview of your adoptions to date</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Status</th>
+                <th>Address</th>
+                <th>Adopter</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% current_user.orders.each do |order|  %>
+              <tr>
+                <td><%= link_to "Order #{order.id}", order_path(order)  %> </td>
+                <td><%= order.status %></td>
+                <td> <%= order.address %></td>
+                <td><%= order.purchaser %></td>
+                <td><%= order.readable_date %></td>
+              </tr>
 
-<% current_user.orders.each do |order|  %>
-  <%= link_to "Order #{order.id}", order_path(order)  %> 
-  <%= order.status %>
-  <%= order.address %>
-  <%= order.purchaser %>
-  <%= order.readable_date %>
-<% end %>
+             <% end %>
+            </tbody>
+          </table>
+
+        </div>
+    </div>
+</div>
+
+

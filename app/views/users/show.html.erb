@@ -1,4 +1,43 @@
-<h1>USER SHOW</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <h1>Profile - <%= current_user.username %><h1>
+        </div>
+    </div>
+</div>
 
-<%= current_user.username %>
-<%= link_to "View Your Cart", cart_path %>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-xs-12">
+         
+            <div class="col-sm-2">
+              <div class="statcard statcard-primary p-a-md">
+                <h3 class="statcard-number">
+                  <%= current_user.name.capitalize %>
+                </h3>
+                <span class="statcard-desc">Name</span>
+              </div>
+            </div>
+     
+            <div class="col-sm-6">
+              <div class="statcard statcard-primary p-a-md">
+                <h3 class="statcard-number">
+                  <%= current_user.address.capitalize %>
+                </h3>
+                <span class="statcard-desc">Address</span>
+              </div>
+            </div>
+
+             <div class="col-sm-4">
+              <p><%= link_to "View Your Cart", cart_path, :class => "btn btn-primary", style: "color:white; padding: 11px 5px 11px 5px;" %></p>
+              <p><%= link_to "View Orders", orders_path, :class => "btn btn-primary", style: "color:white; padding: 11px 13px 11px 13px;" %></p>  
+            </div>
+       
+    
+    </div>
+</div>
+
+
+
