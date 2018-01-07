@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :dogs, only: [:new, :create, :index, :edit, :update]
     resources :carrierwave_images, only: [:new, :create]
     resources :users, only: [:edit, :update]
+    resources :orders, only: [:update]
     get "/dashboard", to: "users#show"
   end
 
