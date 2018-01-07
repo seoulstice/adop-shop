@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :users, only: [:edit, :update]
     resources :orders, only: [:update]
     get "/dashboard", to: "users#show"
+    get "/analytics-dashboard", to: "analytics#show"
   end
 
   resources :users, only: [:new, :create]
