@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :carrierwave_images, only: [:new, :create]
     resources :users, only: [:edit, :update]
     get "/dashboard", to: "users#show"
+    get "/analytics-dashboard", to: "analytics#show"
   end
 
   resources :users, only: [:new, :create]
