@@ -24,6 +24,9 @@
       <%= f.label :description %>
       <%= f.text_field :description %>
 
+      <%= f.label :category_id %>
+      <%= f.collection_select :category_id, all_categories, :id, :title %>
+
       <%= f.label :price %>
       <%= f.text_field :price %>
 

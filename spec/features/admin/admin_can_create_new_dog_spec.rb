@@ -2,8 +2,10 @@ require 'rails_helper'
 
 describe 'When the Admin User navigates to dog new form' do
   context 'the Admin User can see the form' do
-    xit 'the Admin User can create a dog' do
+    it 'the Admin User can create a dog' do
       admin = create(:user, role: 1)
+      category = create(:category)
+
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit new_admin_dog_path
@@ -16,11 +18,12 @@ describe 'When the Admin User navigates to dog new form' do
       select "Male", from: 'dog[gender]'
       fill_in "dog[description]", with: "Good with cats and kids."
       fill_in "dog[price]", with: 100
+      select category.title, from: "dog[category_id]"
       click_link_or_button 'Create Dog'
 
       @dog = Dog.last
 
-      expect(current_path).to eq(dog_path(@dog))
+      expect(current_path).to eq(dog_path(@dog.slug))
       expect(page).to have_content("Fido")
       expect(page).to have_content("German Shepard")
       expect(page).to have_content("Medium")

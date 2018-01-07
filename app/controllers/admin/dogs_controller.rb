@@ -8,7 +8,7 @@ class Admin::DogsController < Admin::BaseController
     @dog = Dog.new(dog_params)
     if @dog.save!
       flash[:success] = "You've created a new dog."
-      redirect_to dog_path(@dog)
+      redirect_to dog_path(@dog.slug)
     else
       flash[:failure] = "Try again."
       render :new
@@ -18,7 +18,7 @@ class Admin::DogsController < Admin::BaseController
   private
 
     def dog_params
-      params.require(:dog).permit(:name, :breed, :size, :weight, :cat_friendly, :gender, :description, :price, :carrierwave_image_id)
+      params.require(:dog).permit(:name, :breed, :size, :weight, :cat_friendly, :gender, :description, :price, :carrierwave_image_id, :category_id)
     end
 
 end
