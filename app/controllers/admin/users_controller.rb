@@ -1,6 +1,7 @@
 class Admin::UsersController < Admin::BaseController
 
   def show
+    @orders = Order.order(:id)
   end
 
   def edit
