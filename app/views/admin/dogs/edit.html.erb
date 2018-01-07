@@ -1,0 +1,34 @@
+<%= form_for [:admin, @dog] do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :breed %>
+  <%= f.text_field :breed %>
+
+  <%= f.label :size %>
+  <%= f.select :size, [["Small", "Small"],["Medium", "Medium"], ["Large", "Large"]] %>
+
+  <%= f.label :weight %>
+  <%= f.text_field :weight %>
+
+  <%= f.label :cat_friendly %>
+  <%= f.check_box :cat_friendly %>
+
+  <%= f.label :gender %>
+  <%= f.select :gender, [["Male", "Male"],["Female", "Female"]] %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :category_id %>
+  <%= f.collection_select :category_id, all_categories, :id, :title %>
+
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+
+  <%= f.label :retired %>
+  <%= f.check_box :retired %>
+
+  <%= f.submit %>
+<% end %>

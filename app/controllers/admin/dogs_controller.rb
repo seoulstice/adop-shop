@@ -19,6 +19,10 @@ class Admin::DogsController < Admin::BaseController
     end
   end
 
+  def edit
+    @dog = Dog.find_by(slug: params[:id])
+  end
+
   def update
     @dog = Dog.find(params[:id])
     @dog.update(dog_params)
@@ -29,7 +33,7 @@ class Admin::DogsController < Admin::BaseController
   private
 
     def dog_params
-      params.require(:dog).permit(:name, :breed, :size, :weight, :cat_friendly, :gender, :description, :price, :carrierwave_image_id, :category_id, :retired)
+      params.require(:dog).permit(:name, :breed, :size, :weight, :cat_friendly, :gender, :description, :price, :image, :category_id, :retired, :slug)
     end
 
 end
