@@ -8,13 +8,14 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index]
 
-  namespace :admin, only: [:new] do
-    resources :dogs
-    resources :carrierwave_images
+  namespace :admin do
+    resources :dogs, only: [:new, :create, :index, :edit, :update]
+    resources :carrierwave_images, only: [:new, :create]
+    resources :users, only: [:edit, :update]
     get "/dashboard", to: "users#show"
   end
 
-  resources :users, only: [:new, :create, :edit, :update]
+  resources :users, only: [:new, :create]
 
   resources :carts, only: [:create]
 

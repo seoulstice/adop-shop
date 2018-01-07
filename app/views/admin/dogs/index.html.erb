@@ -1,0 +1,13 @@
+<% @dogs.each do |dog| %>
+  <%= link_to "#{dog.name}", dog_path(dog.slug) %>
+  <%= dog.breed %>
+  <%= dog.retired %>
+  <%= link_to "Edit #{dog.name}", edit_admin_dog_path(dog.slug) %>
+  <%= form_for [:admin, dog] do |f| %>
+
+    <%= f.label :retired %>
+    <%= f.check_box :retired %>
+
+    <%= f.submit "Update Status" %>
+  <% end %>
+<% end %>

@@ -3,9 +3,8 @@ class OrdersController < ApplicationController
   end
 
   def show
-  
     @order = Order.find(params[:id])
-    if logged_in? && @order.user_id == current_user.id 
+    if logged_in? && @order.user_id == current_user.id || current_admin?
       render :show
     else
       render file: '/public/404'
@@ -25,7 +24,7 @@ class OrdersController < ApplicationController
         flash[:notice] = "Please try again."
         redirect_to cart_path
       end
-    else 
+    else
       redirect_to login_path
     end
 

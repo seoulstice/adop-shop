@@ -1,22 +1,21 @@
 <h1>Order <%= @order.id %></h1>
 
+  Purchaser Name: <%= @order.user.name %>
+  Purchaser Address: <%= @order.user.address %>
+  Order Date: <%= @order.created_at %>
+  Order Status: <%= @order.status %>
 
+  <% total = 0 %>
   <% @order.order_dogs.each do |order_dog|%>
-    <%= order_dog.dog.name %>
-    <%= order_dog.quantity %>
-    <%= order_dog.order.status %>
+    Dog Name: <%= link_to "#{order_dog.dog.name}", dog_path(order_dog.dog) %>
+    Quantity: <%= order_dog.quantity %>
+    Price: $<%= order_dog.dog.price %>.00
+    Subtotal: $<%= total += order_dog.quantity.to_i  * order_dog.dog.price %>.00
 
     <% if order_dog.order.completed? %>
-      <%= order_dog.order.updated_at %>
+      Updated at:<%= order_dog.order.updated_at %>
     <% end %>
 
-    <%= order_dog.quantity.to_i  * order_dog.dog.price %>
- 
-    <%= order_dog.order.created_at %>
-
-
-    
   <% end %>
 
-
-
+Order Total: $<%= total %>.00
