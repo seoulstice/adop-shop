@@ -30,7 +30,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'carrierwave'
 gem 'mini_magick'
 gem 'figaro'
 gem 'bcrypt'
