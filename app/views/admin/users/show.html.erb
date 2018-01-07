@@ -1,33 +1,123 @@
-<h1>Admin Dashboard</h1>
-<%= current_user.username %>
-<%= current_user.name %>
-<%= current_user.address %>
-<%= current_user.role %>
-
-<%= link_to "View All Dogs Table", admin_dogs_path %>
-
-<%= link_to "Analytics Dashboard",admin_analytics_dashboard_path %>
-
-<%= link_to "Edit Account", edit_admin_user_path(current_user) %>
-
-Ordered: <%= Order.count_status["Ordered"] %>
-Paid: <%= Order.count_status["Paid"] %>
-Canceled: <%= Order.count_status["Canceled"] %>
-Completed: <%= Order.count_status["Completed"] %>
 
 
 
-<% @orders.each do |order| %>
-  <%= link_to "Order #{order.id}", order_path(order) %>
-  <%= order.status %>
-  <% if order.status == "Paid" || order.status == "Ordered" %>
-    <%= link_to "Cancel", admin_order_path(order, :order => {status: "Canceled"}), method: :put, confirm: "Are you sure?" %>
-  <% end %>
-  <% if order.status == "Ordered" %>
-    <%= link_to "Mark as Paid", admin_order_path(order, :order => {status: "Paid"}), method: :put, confirm: "Are you sure?" %>
-  <% end %>
-  <% if order.status == "Paid" %>
-    <%= link_to "Mark as Completed", admin_order_path(order, :order => {status: "Completed"}), method: :put, confirm: "Are you sure?" %>
-  <% end %>
-<br>
-<% end %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+          <h1>Admin Dashboard</h1>
+          <p>Manage the site below</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+        <span class="label label-primary"> <%= link_to "View All Dogs Table", admin_dogs_path, style: "color: white;" %></span>
+        <span class="label label-primary"> <%= link_to "Analytics Dashboard", admin_analytics_dashboard_path, style: "color: white;" %></span>
+        <span class="label label-primary"> <%= link_to "Edit Account", edit_admin_user_path(current_user), style: "color: white;" %></span>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+          <h4>Admin Info</h4>
+          <ul class="list-group">
+            <li class="list-group-item">Username: <%= current_user.username %></li>
+            <li class="list-group-item">Name: <%= current_user.name %></li>
+            <li class="list-group-item">Address: <%= current_user.address %></li>
+            <li class="list-group-item">Role: <%= current_user.role %></li>
+       
+          </ul>
+
+
+        </div>
+        <div class="col-md-6">
+          <h4>Orders by Status</h4>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>Total Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ordered</td>
+                <td><%= Order.count_status["Ordered"] %></td>
+              </tr>
+              <tr>
+                <td>Paid</td>
+                <td><%= Order.count_status["Paid"] %></td>
+              </tr>
+              <tr>
+                <td>Canceled</td>
+                <td><%= Order.count_status["Canceled"] %></td>
+              </tr>
+              <tr>
+                <td>Completed</td>
+                <td><%= Order.count_status["Completed"] %></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+        <h4>Adoption History</h4>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Status</th>
+                <th>Cancel?</th>
+                <th>Marks as paid?</th>
+                <th>Marks as completed?</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @orders.each do |order| %>
+
+              <tr>
+                <td><%= link_to "Order #{order.id}", order_path(order) %></td>
+                <td><%= order.status %></td>
+                <% if order.status == "Paid" || order.status == "Ordered" %>
+                  <td><%= link_to "Cancel", admin_order_path(order, :order => {status: "Canceled"}), method: :put, confirm: "Are you sure?" %></td>
+                <% else %>
+                  <td></td>
+                <% end %>
+                <% if order.status == "Ordered" %>
+                 <td><%= link_to "Mark as Paid", admin_order_path(order, :order => {status: "Paid"}), method: :put, confirm: "Are you sure?" %></td>
+                <% else %>
+                  <td></td>
+                <% end %>
+                <% if order.status == "Paid" %>
+                  <td><%= link_to "Mark as Completed", admin_order_path(order, :order => {status: "Completed"}), method: :put, confirm: "Are you sure?" %></td>
+                <% else %>
+                  <td></td>
+                <% end %>
+              </tr>
+
+             <% end %>
+            </tbody>
+          </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+
