@@ -1,6 +1,7 @@
 class Category < ApplicationRecord
   before_save :generate_slug
-  has_many :dogs
+  has_many :dog_categories
+  has_many :dogs, through: :dog_categories
 
   private
 
