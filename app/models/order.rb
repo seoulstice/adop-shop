@@ -15,8 +15,10 @@ class Order < ApplicationRecord
   end
 
   def self.count_status
-    group(:status).count
+    count = Hash.new(0)
+    count.merge(group(:status).count)
   end
+
 
 
 end
