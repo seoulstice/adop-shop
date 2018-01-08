@@ -4,6 +4,7 @@ FactoryBot.define do
     sequence(:username) {|n| "username#{n}"}
     role 0
     address "address"
-    name "Unique"
+    sequence(:name) {|n| "Unique#{n}"}
+    orders_count 0
   end
 end
