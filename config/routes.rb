@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   root :to => 'welcome#index'
 
-  resources :carrierwave_images, only: [:index, :show]
 
   resources :dogs, only: [:index, :show, :create, :destroy]
 
@@ -10,7 +9,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dogs, only: [:new, :create, :index, :edit, :update]
-    resources :carrierwave_images, only: [:new, :create]
     resources :users, only: [:edit, :update]
     resources :orders, only: [:update]
     get "/dashboard", to: "users#show"
