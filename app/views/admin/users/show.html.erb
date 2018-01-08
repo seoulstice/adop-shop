@@ -16,6 +16,7 @@
         <span class="label label-primary"> <%= link_to "View All Dogs Table", admin_dogs_path, style: "color: white;" %></span>
         <span class="label label-primary"> <%= link_to "Analytics Dashboard", admin_analytics_dashboard_path, style: "color: white;" %></span>
         <span class="label label-primary"> <%= link_to "Edit Account", edit_admin_user_path(current_user), style: "color: white;" %></span>
+        <span class="label label-primary"> <%= link_to "Create Dog", new_admin_dog_path, style: "color: white;" %></span>
         </div>
     </div>
 </div>
@@ -31,7 +32,7 @@
             <li class="list-group-item">Name: <%= current_user.name %></li>
             <li class="list-group-item">Address: <%= current_user.address %></li>
             <li class="list-group-item">Role: <%= current_user.role %></li>
-       
+
           </ul>
 
 
@@ -117,11 +118,3 @@
         </div>
     </div>
 </div>
-
-<%= link_to "Create Dog", new_admin_dog_path %>
-
-
-
-
-
- 
