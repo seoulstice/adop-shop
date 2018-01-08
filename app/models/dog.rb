@@ -11,6 +11,9 @@ class Dog < ApplicationRecord
   enum size: ["Small", "Medium", "Large"]
   enum gender: ["Male", "Female"]
 
+  def self.highest_price_within_category
+    group(:category_id)
+  end
   private
     def generate_slug
       self.slug = name.parameterize
