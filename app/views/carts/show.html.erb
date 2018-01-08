@@ -77,20 +77,24 @@
         </div>
     </div>
 </div>
-<% end %>
-
-<% if @cart.contents.present? %>
-  <div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-          <p>
-          <%= button_to "Checkout", orders_path, :class => 'btn btn-primary', style: "float:right;" , method: :post %>
-          </p>
-        </div>
-    </div>
-  </div>
 <% else %>
-  <div class="">
 
-  </div>
+  <% if @cart.contents.present? %>
+    <div class="container">
+      <div class="row">
+          <div class="col-xs-12">
+            <p>
+            <%= button_to "Checkout", orders_path, :class => 'btn btn-primary', style: "float:right;" , method: :post %>
+            </p>
+          </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="">
+
+    </div>
+  <% end %>
+
 <% end %>
+
+
