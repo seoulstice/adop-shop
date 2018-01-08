@@ -4,8 +4,7 @@ class OrderSearch < Searchlight::Search
   include Searchlight::Adapters::ActionView
 
   def base_query
-    @user = User.find(options[:user_id])
-    @user.orders.all
+    Order.all
   end
 
   def search_status
