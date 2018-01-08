@@ -4,4 +4,7 @@ module CollectionsHelper
     [["All Orders",""], ["Ordered", "Ordered"], ["Paid", "Paid"], ["Canceled", "Canceled"], ["Completed", "Completed"] ]
   end
 
+  def categories_collection
+    Category.all.collect{|u| [u.title, u.id]}
+  end
 end

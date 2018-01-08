@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require_tree .
 //= require jquery.min
+//= require jquery_ujs
 //= require toolkit
 //= require marketing
-
+//= require_tree .

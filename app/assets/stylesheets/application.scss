@@ -11,14 +11,14 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- 
+
  *= require marketing-minimal
  *= require toolkit-minimal
  *= require_self
  */
 
 .jumbotron{
-  background-image: url(doggo.png);
+  background: image-url(doggo);
   background-size: cover;
   color: white;
   padding-bottom: 250px;
@@ -33,10 +33,6 @@
   grid-template-columns: repeat(auto-fit, 100px);
   grid-template-rows: repeat(1, 100px);
   grid-gap: 10px;
-  
-  
+
+
 }
-
-
-
-

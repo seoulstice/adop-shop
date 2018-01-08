@@ -12,8 +12,7 @@ CATEGORIES.each do |title|
   Category.create!(title: title)
 end
 DOGS.each do |name|
-  dog = Dog.create!(name: name, breed: BREED.sample, size: SIZE.sample, weight: rand(150), cat_friendly: CAT_FRIENDLY.sample, gender: GENDER.sample, description: "I LOVE HUMANS!", price: rand(200), category_id: Category.all.sample.id )
+  dog = Dog.create!(name: name, breed: BREED.sample, size: SIZE.sample, weight: rand(150), cat_friendly: CAT_FRIENDLY.sample, gender: GENDER.sample, description: "I LOVE HUMANS!", price: rand(200))
+  dog.categories << Category.all.sample
   puts "Created #{dog.name}"
 end
-
-User.create!(name: "admin", username: "admin", password: "admin", role: 1, address: "123 Street")

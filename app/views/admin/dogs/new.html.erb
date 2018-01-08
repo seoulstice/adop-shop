@@ -9,11 +9,14 @@
       <%= f.label :breed %>
       <%= f.text_field :breed %>
 
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+
       <%= f.label :size %>
       <%= f.select :size, [["Small", "Small"],["Medium", "Medium"], ["Large", "Large"]] %>
 
       <%= f.label :weight %>
-      <%= f.text_field :weight %>
+      <%= f.number_field :weight, within: 1..300 %>
 
       <%= f.label :cat_friendly %>
       <%= f.check_box :cat_friendly %>
@@ -25,10 +28,10 @@
       <%= f.text_field :description %>
 
       <%= f.label :category_id %>
-      <%= f.collection_select :category_id, all_categories, :id, :title %>
+      <%= f.select :category_id, categories_collection, {}, { :multiple => true, :size => 5 } %>
 
       <%= f.label :price %>
-      <%= f.text_field :price %>
+      <%= f.number_field :price %>
 
       <%= f.label :retired %>
       <%= f.check_box :retired %>
