@@ -30,12 +30,12 @@ class Admin::DogsController < Admin::BaseController
   def update
     @dog = Dog.find(params[:id])
     @dog.update(dog_params)
-    @dog.dog_categories.destroy_all
-    params[:dog][:category_ids].drop(1).each do |category_id|
-      @dog.dog_categories.create(category_id: category_id)
+    if params.include?(params[:dog][:category_ids])
+      @dog.dog_categories.destroy_all
+      params[:dog][:category_ids].drop(1).each do |category_id|
+        @dog.dog_categories.create(category_id: category_id)
+      end
     end
-
-
     redirect_to admin_dogs_path
   end
 
