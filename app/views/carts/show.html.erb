@@ -14,7 +14,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-        
+
           <div class="panel panel-default">
             <div class="panel-heading"><%= dog.name %></div>
               <div class="panel-body">
@@ -27,7 +27,7 @@
                       </a>
                     </div>
 
-            
+
 
                     <div class="media-body">
                       <p><%= button_to "Remove Dog", cart_path(dog_id: dog.id), :class => 'btn btn-sm btn-warning', method: :delete, style: 'float:right;' %></p>
@@ -63,8 +63,8 @@
           <h3 class="statcard-number">$<%= @cart.total_price %>.00</h3>
           <span class="statcard-desc">Total Price</span>
         </div>
-        
-          
+
+
         </div>
     </div>
 </div>
@@ -79,8 +79,8 @@
 </div>
 <% end %>
 
-
-<div class="container">
+<% if @cart.contents.present? %>
+  <div class="container">
     <div class="row">
         <div class="col-xs-12">
           <p>
@@ -88,17 +88,9 @@
           </p>
         </div>
     </div>
-</div>
+  </div>
+<% else %>
+  <div class="">
 
-
-
-
-
-
-
-
-
-
-
-
-
+  </div>
+<% end %>
