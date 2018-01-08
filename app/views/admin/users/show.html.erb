@@ -15,7 +15,14 @@ Paid: <%= Order.count_status["Paid"] %>
 Canceled: <%= Order.count_status["Canceled"] %>
 Completed: <%= Order.count_status["Completed"] %>
 
+<div class="">
+  <%= form_for(@search, url: admin_dashboard_path, method: :get) do |f| %>
+    <%= f.label :status, "Sort Orders by Status" %>
+    <%= f.select :status, orders_status_collection %>
 
+    <%= f.submit "Search" %>
+  <% end %>
+</div>
 
 <% @orders.each do |order| %>
   <%= link_to "Order #{order.id}", order_path(order) %>
