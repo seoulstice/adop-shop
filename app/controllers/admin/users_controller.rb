@@ -1,7 +1,8 @@
 class Admin::UsersController < Admin::BaseController
 
   def show
-    @orders = Order.order(:id)
+    @search = OrderSearch.new(search_params)
+    @orders = @search.results.order(:updated_at)
   end
 
   def edit
@@ -22,5 +23,11 @@ class Admin::UsersController < Admin::BaseController
       def user_params
         params.require(:user).permit(:username, :password, :name, :address)
       end
+
+  protected
+    def search_params
+      (params[:order_search] || {}).merge(user_id: current_user.id)
+    end
+
 
 end
