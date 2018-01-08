@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
       end
       if @order.save
         flash[:success] = "Order was successfully placed"
+        session.delete(:cart)
         redirect_to orders_path
       else
         flash[:notice] = "Please try again."
