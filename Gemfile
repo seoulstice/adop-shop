@@ -32,11 +32,16 @@ gem 'jquery-ui-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'carrierwave'
+gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-aws'
 gem 'mini_magick'
 gem 'figaro'
 gem 'bcrypt'
+
+gem 'aws-sdk-rails'
+
 gem 'searchlight'
+
 
 
 group :development, :test do
