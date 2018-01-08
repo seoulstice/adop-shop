@@ -1,11 +1,73 @@
-<h1>Order <%= @order.id %></h1>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <h1>Order <%= @order.id %></h1>
+          <p>Browse details for this order below</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+        
+          <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Purchaser Name</th>
+            <th>Purchaser Address</th>
+            <th>Order Date</th>
+            <th>Order Status</th>
+            <th>Dog Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Subtotal</th>
+            <th>Order Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+          
+        
+        
+        
+        
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 
   Purchaser Name: <%= @order.user.name %>
   Purchaser Address: <%= @order.user.address %>
   Order Date: <%= @order.created_at %>
   Order Status: <%= @order.status %>
 
-  <% total = 0 %>
+  <% total = 0.00 %>
   <% @order.order_dogs.each do |order_dog|%>
     Dog Name: <%= link_to "#{order_dog.dog.name}", dog_path(order_dog.dog.slug) %>
     Quantity: <%= order_dog.quantity %>
@@ -18,4 +80,4 @@
 
   <% end %>
 
-Order Total: <%= number_to_currecny(total) %>
+Order Total: <%= number_to_currency(total) %>  
