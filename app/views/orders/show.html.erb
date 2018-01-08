@@ -7,7 +7,7 @@
 
   <% total = 0 %>
   <% @order.order_dogs.each do |order_dog|%>
-    Dog Name: <%= link_to "#{order_dog.dog.name}", dog_path(order_dog.dog) %>
+    Dog Name: <%= link_to "#{order_dog.dog.name}", dog_path(order_dog.dog.slug) %>
     Quantity: <%= order_dog.quantity %>
     Price: $<%= order_dog.dog.price %>.00
     Subtotal: $<%= total += order_dog.quantity.to_i  * order_dog.dog.price %>.00
