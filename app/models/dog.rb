@@ -13,7 +13,10 @@ class Dog < ApplicationRecord
   enum size: ["Small", "Medium", "Large"]
   enum gender: ["Male", "Female"]
 
+  scope :sort_dogs, -> {order(:name)}
+
   private
+
     def generate_slug
       self.slug = name.parameterize
     end

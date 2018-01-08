@@ -1,7 +1,7 @@
 class Admin::DogsController < Admin::BaseController
 
   def index
-    @dogs = Dog.all
+    @dogs = Dog.sort_dogs
   end
 
   def new
@@ -15,7 +15,7 @@ class Admin::DogsController < Admin::BaseController
     else
       @dog = Dog.new({image: "https://ibb.co/nrmV96"}.merge(dog_params))
     end
-   
+
     if @dog.save
       params[:dog][:category_ids].drop(1).each do |category_id|
         @dog.dog_categories.create(category_id: category_id)
@@ -34,13 +34,8 @@ class Admin::DogsController < Admin::BaseController
 
   def update
     @dog = Dog.find(params[:id])
-    @dog.update(dog_params)
-    if params.include?(params[:dog][:category_ids])
-      @dog.dog_categories.destroy_all
-      params[:dog][:category_ids].drop(1).each do |category_id|
-        @dog.dog_categories.create(category_id: category_id)
-      end
-    end
+    @dog.update_attributes(dog_params)
+
     redirect_to admin_dogs_path
   end
 
