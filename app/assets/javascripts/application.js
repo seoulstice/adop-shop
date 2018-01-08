@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require jquery.min
+//= require jquery_ujs
 //= require toolkit
 //= require marketing
 //= require_tree .
