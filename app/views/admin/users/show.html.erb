@@ -83,7 +83,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-12">
+      <div class="col-xs-12">
         <h4>Adoption History</h4>
           <table class="table table-striped">
             <thead>
@@ -96,36 +96,41 @@
               </tr>
             </thead>
             <tbody>
-            <% if @orders.any? %>
-              <% @orders.each do |order| %>
+              <% if @orders.any? %>
+                <% @orders.each do |order| %>
 
-                <tr>
-                  <td><%= link_to "Order #{order.id}", order_path(order) %></td>
-                  <td><%= order.status %></td>
-                  <% if order.status == "Paid" || order.status == "Ordered" %>
-                    <td><%= link_to "Cancel", admin_order_path(order, :order => {status: "Canceled"}), method: :put, confirm: "Are you sure?" %></td>
-                  <% else %>
-                    <td></td>
+                  <tr>
+                    <td><%= link_to "Order #{order.id}", order_path(order) %></td>
+                    <td><%= order.status %></td>
+                    <% if order.status == "Paid" || order.status == "Ordered" %>
+                      <td><%= link_to "Cancel", admin_order_path(order, :order => {status: "Canceled"}), method: :put, confirm: "Are you sure?" %></td>
+                    <% else %>
+                      <td></td>
+                    <% end %>
+                    <% if order.status == "Ordered" %>
+                     <td><%= link_to "Mark as Paid", admin_order_path(order, :order => {status: "Paid"}), method: :put, confirm: "Are you sure?" %></td>
+                    <% else %>
+                      <td></td>
+                    <% end %>
+                    <% if order.status == "Paid" %>
+                      <td><%= link_to "Mark as Completed", admin_order_path(order, :order => {status: "Completed"}), method: :put, confirm: "Are you sure?" %></td>
+                    <% else %>
+                      <td></td>
+                    <% end %>
+                  </tr>
+
                   <% end %>
-                  <% if order.status == "Ordered" %>
-                   <td><%= link_to "Mark as Paid", admin_order_path(order, :order => {status: "Paid"}), method: :put, confirm: "Are you sure?" %></td>
-                  <% else %>
-                    <td></td>
-                  <% end %>
-                  <% if order.status == "Paid" %>
-                    <td><%= link_to "Mark as Completed", admin_order_path(order, :order => {status: "Completed"}), method: :put, confirm: "Are you sure?" %></td>
-                  <% else %>
-                    <td></td>
-                  <% end %>
-                </tr>
-                
-                <% end %>
               <% else %>
-                <p>No Matches.</p>
+                <tr>
+                  <td>No Matches.</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
               <% end %>
             </tbody>
           </table>
-
-        </div>
+      </div>
     </div>
 </div>
