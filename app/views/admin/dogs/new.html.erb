@@ -25,7 +25,7 @@
       <%= f.text_field :description %>
 
       <%= f.label :category_id %>
-      <%= f.collection_select :category_id, all_categories, :id, :title %>
+      <%= f.select :category_id, categories_collection, {}, { :multiple => true, :size => 5 } %>
 
       <%= f.label :price %>
       <%= f.text_field :price %>

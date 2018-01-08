@@ -1,8 +1,8 @@
 class Dog < ApplicationRecord
   before_save :generate_slug
-  
-  belongs_to :category
-  has_many :order_dogs 
+  has_many :dog_categories
+  has_many :categories, through: :dog_categories
+  has_many :order_dogs
   has_many :orders, through: :order_dogs
   has_one :carrierwave_image
 
