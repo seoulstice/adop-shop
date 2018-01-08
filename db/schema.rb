@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180108183333) do
+ActiveRecord::Schema.define(version: 20180108210846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,7 +73,8 @@ ActiveRecord::Schema.define(version: 20180108183333) do
     t.datetime "updated_at", null: false
     t.string "address"
     t.string "name"
-    t.integer "orders_count"
+    t.integer "orders_count", default: 0
+    t.index ["orders_count"], name: "index_users_on_orders_count"
   end
 
   add_foreign_key "dog_categories", "categories"
