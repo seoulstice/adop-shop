@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
   def index
+    if logged_in? == false 
+      render file: '/public/404'
+    end
   end
 
   def show
