@@ -10,24 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180106003030) do
+ActiveRecord::Schema.define(version: 20180108183333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "carrierwave_images", force: :cascade do |t|
-    t.string "asset"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "dog_id"
-    t.index ["dog_id"], name: "index_carrierwave_images_on_dog_id"
-  end
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+  end
+
+  create_table "dog_categories", force: :cascade do |t|
+    t.bigint "dog_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_dog_categories_on_category_id"
+    t.index ["dog_id"], name: "index_dog_categories_on_dog_id"
   end
 
   create_table "dogs", force: :cascade do |t|
@@ -41,10 +40,9 @@ ActiveRecord::Schema.define(version: 20180106003030) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id"
     t.string "slug"
     t.boolean "retired", default: false
-    t.index ["category_id"], name: "index_dogs_on_category_id"
+    t.string "image"
   end
 
   create_table "order_dogs", force: :cascade do |t|
@@ -77,8 +75,8 @@ ActiveRecord::Schema.define(version: 20180106003030) do
     t.string "name"
   end
 
-  add_foreign_key "carrierwave_images", "dogs"
-  add_foreign_key "dogs", "categories"
+  add_foreign_key "dog_categories", "categories"
+  add_foreign_key "dog_categories", "dogs"
   add_foreign_key "order_dogs", "dogs"
   add_foreign_key "order_dogs", "orders"
   add_foreign_key "orders", "users"
