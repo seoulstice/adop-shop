@@ -44,8 +44,13 @@
                       <h3 class="statcard-number"><%= @dog.gender%></h3>
                       <span class="statcard-desc">Gender</span>
                     </div>
-
-                      <p><%= button_to "Add Dog", carts_path(dog_id: @dog.id), :class => "btn btn-primary", style: "float:right;"%></p>
+                      <% if @dog.retired? %>
+                       
+                        <p><%= link_to "Dog Retired", "#", :class => "btn btn-primary", style: "float:right; color: white;"%></p>
+                        <br>
+                      <% else %>
+                        <p><%= button_to "Add Dog", carts_path(dog_id: @dog.id), :class => "btn btn-primary", style: "float:right;"%></p>
+                      <% end %>
                       <h6>About <%=@dog.name %><h6>
                       <p><%= @dog.description %></p>
 

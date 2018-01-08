@@ -2,6 +2,8 @@ class Dog < ApplicationRecord
   mount_uploader :image, ImageUploader
   before_save :generate_slug
 
+  validates_uniqueness_of :name
+
   has_many :dog_categories
   has_many :categories, through: :dog_categories
 
