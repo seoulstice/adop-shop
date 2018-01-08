@@ -5,7 +5,7 @@ class User < ApplicationRecord
   enum role: ["default", "admin"]
 
   def self.user_with_most_orders
-    order("users.orders_count DESC").limit(1).name
+    order("orders_count DESC").limit(1).first.name
   end
 
 end
