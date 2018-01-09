@@ -20,6 +20,9 @@ class Admin::DogsController < Admin::BaseController
       params[:dog][:category_ids].drop(1).each do |category_id|
         @dog.dog_categories.create(category_id: category_id)
       end
+      if params[:dog][:retired] == "1"
+        @dog.increment!(:retired_count)
+      end
       flash[:success] = "You've created a new dog."
       redirect_to dog_path(@dog.slug)
     else
@@ -34,10 +37,9 @@ class Admin::DogsController < Admin::BaseController
 
   def update
     @dog = Dog.find(params[:id])
-    if params[:retired] == "true"
-      @dog.update_attributes(dog_params.merge({:retired_count += 1}))
-    else
-      @dog.update_attributes(dog_params)
+    @dog.update_attributes(dog_params)
+    if params[:dog][:retired] == "1"
+      @dog.increment!(:retired_count)
     end
     redirect_to admin_dogs_path
   end
@@ -45,7 +47,7 @@ class Admin::DogsController < Admin::BaseController
   private
 
     def dog_params
-      params.require(:dog).permit(:name, :breed, :size, :weight, :cat_friendly, :gender, :description, :price, :image, {:category_ids => []} , :retired, :slug)
+      params.require(:dog).permit(:name, :breed, :size, :weight, :cat_friendly, :gender, :description, :price, :image, {:category_ids => []} , :retired, :retired_count, :slug)
     end
 
 end

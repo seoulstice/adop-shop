@@ -5,3 +5,11 @@
   <p>Most Expensive <%= category.title %>: <%= category.highest_price_item_per_category %></p>
   <p><%= category.title %>: <%= category.orders_by_category %></p>
 <% end %>
+
+<% @dogs.each do |dog| %>
+  <% if dog.retired_count > 0 %>
+    <%= dog.name %>
+    <%= dog.status %>
+    <%= dog.retired_count %>
+  <% end %>
+<% end %>
