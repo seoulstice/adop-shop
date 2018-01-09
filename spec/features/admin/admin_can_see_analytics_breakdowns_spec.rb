@@ -66,11 +66,24 @@ describe "When an Admin User navigates to analytics dashboard" do
     expect(page).to have_content("#{dog2.name}")
     expect(page).to have_content("#{dog2.retired}")
     expect(page).to have_content("1")
+  end
 
+  it "the Admin can see order breakdown by state" do
+    admin = create(:user, role: 1)
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
+    order1 = create(:order, user: user, state: "MN", status: "Completed")
+    order2 = create(:order, user: user, state: "PA", status: "Completed")
+    order3 = create(:order, user: user, state: "PA", status: "Completed")
+    order4 = create(:order, user: user, state: "CO", status: "Completed")
+    order5 = create(:order, user: user, state: "CO", status: "Completed")
+    order6 = create(:order, user: user, state: "CO", status: "Completed")
 
+    visit admin_analytics_dashboard_path
 
-
-
+    expect(page).to have_content("MN: 1")
+    expect(page).to have_content("PA: 2")
+    expect(page).to have_content("CO: 3")
   end
 end
