@@ -14,3 +14,7 @@
     <%= dog.retired_count %>
   <% end %>
 <% end %>
+
+<% @orders.orders_by_state.each do |state, count| %>
+  <%= state %>: <%= count %>
+<% end %>

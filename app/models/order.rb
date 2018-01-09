@@ -12,6 +12,10 @@ class Order < ApplicationRecord
     return false if status == "Ordered" || status == "Paid"
   end
 
+  def self.orders_by_state
+    where(status: "Completed").group(:state).count
+  end
+
   def self.count_status
     count = Hash.new(0)
     count.merge(group(:status).count)
