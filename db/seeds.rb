@@ -1,5 +1,9 @@
 Category.destroy_all
 Dog.destroy_all
+User.destroy_all
+DogCategory.destroy_all
+OrderDog.destroy_all
+Order.destroy_all
 
 DOGS = ["Fido", "Bubbles", "Fluffy", "Rover", "Max", "Wolf", "Jim", "Captain", "Cooper", "Rocky", "Bear", "Duke"]
 CATEGORIES = ["Sporting Dogs", "Hounds", "Working Dogs", "Terriers", "Toys", "Non-Sporting", "Herding"]
