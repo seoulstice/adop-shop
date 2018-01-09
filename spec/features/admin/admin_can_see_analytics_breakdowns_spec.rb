@@ -51,6 +51,38 @@ describe "When an Admin User navigates to analytics dashboard" do
   end
 
   it "the Admin can see Retired Item analytics" do
-    
+    admin = create(:user, role: 1)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    dog1 = create(:dog, price: 50)
+    dog2 = create(:dog, price: 100)
+    dog3 = create(:dog, price: 75)
+
+    visit admin_dogs_path
+
+    page.all("input[type='checkbox']")[0].click
+    page.all("input[type='submit']")[0].click
+    page.all("input[type='checkbox']")[0].click
+    page.all("input[type='submit']")[0].click
+    page.all("input[type='checkbox']")[0].click
+    page.all("input[type='submit']")[0].click
+
+    page.all("input[type='checkbox']")[1].click
+    page.all("input[type='submit']")[1].click
+
+    visit admin_analytics_dashboard_path
+    binding.pry
+    expect(page).to have_content("#{dog1.name}")
+    expect(page).to have_content("#{dog1.retired}")
+    expect(page).to have_content("2")
+
+    expect(page).to have_content("#{dog2.name}")
+    expect(page).to have_content("#{dog2.retired}")
+    expect(page).to have_content("1")
+
+
+
+
+
+
   end
 end
