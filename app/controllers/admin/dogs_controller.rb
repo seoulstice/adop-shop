@@ -34,8 +34,11 @@ class Admin::DogsController < Admin::BaseController
 
   def update
     @dog = Dog.find(params[:id])
-    @dog.update_attributes(dog_params)
-
+    if params[:retired] == "true"
+      @dog.update_attributes(dog_params.merge({:retired_count += 1}))
+    else
+      @dog.update_attributes(dog_params)
+    end
     redirect_to admin_dogs_path
   end
 

@@ -49,4 +49,8 @@ describe "When an Admin User navigates to analytics dashboard" do
     expect(page).to have_content("Toy: 1")
     expect(page).to have_content("Working Dog: 2")
   end
+
+  it "the Admin can see Retired Item analytics" do
+    
+  end
 end
