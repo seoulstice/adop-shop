@@ -1,18 +1,37 @@
-<%= form_for [:admin, @user] do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <h1>Edit Your Account</h1>
+          <p>Fill in the details below to update your account</p>
+        </div>
+    </div>
+</div>
 
-  <%= f.label :password %>
-  <%= f.text_field :password %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+        
+          <%= form_for [:admin, @user] do |f| %>
+            <%= f.label :username %>
+            <%= f.text_field :username, class: "form-control" %>
 
-  <%= f.label :address %>
-  <%= f.text_field :address %>
+            <%= f.label :password %>
+            <%= f.text_field :password, class: "form-control" %>
 
-  <%= f.label :role %>
-  <%= f.number_field :role, max: 1 %>
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control" %>
 
-  <%= f.submit "Edit Account" %>
-<% end %>
+            <%= f.label :address %>
+            <%= f.text_field :address, class: "form-control" %>
+
+            <%= f.label :role %>
+            <%= f.number_field :role, max: 1, class: "form-control" %>
+
+            <%= f.submit "Edit Account", class: "btn btn-primary", style: 'float:right; margin-top: 40px;' %>
+          <% end %>
+
+        </div>
+    </div>
+</div>
+

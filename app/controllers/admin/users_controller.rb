@@ -26,7 +26,7 @@ class Admin::UsersController < Admin::BaseController
 
   protected
     def search_params
-      (params[:order_search] || {}).merge(user_id: current_user.id)
+      (params[:order_search] || {})
     end
 
 

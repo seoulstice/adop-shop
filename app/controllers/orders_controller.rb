@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
   def index
+    if logged_in? == false 
+      render file: '/public/404'
+    end
   end
 
   def show
@@ -19,6 +22,7 @@ class OrdersController < ApplicationController
       end
       if @order.save
         flash[:success] = "Order was successfully placed"
+        session.delete(:cart)
         redirect_to orders_path
       else
         flash[:notice] = "Please try again."

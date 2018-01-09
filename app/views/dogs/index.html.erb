@@ -42,7 +42,7 @@
                 <div class="caption">
                   <h3 id="thumbnail-label"><%= dog.name %></h3>
                   <p>Breed: <%= dog.breed %></p>
-                  <p>Price: $<%= dog.price %>.00</p>
+                  <p>Price: <%= number_to_currency(dog.price) %></p>
                    <div style="display:flex;">
                     <p><%= link_to "View Dog", dog_path(dog.slug),:class => "btn btn-xs btn-info", style: "margin-right:10px;" %></p>
                     <p><%= button_to "Add Dog", carts_path(dog_id: dog.id), :class => "btn btn-xs btn-primary"%></p>

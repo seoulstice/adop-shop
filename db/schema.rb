@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20180108210846) do
     t.boolean "cat_friendly"
     t.integer "gender"
     t.text "description"
-    t.integer "price"
+    t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"

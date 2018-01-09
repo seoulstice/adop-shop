@@ -16,6 +16,7 @@
         <span class="label label-primary"> <%= link_to "View All Dogs Table", admin_dogs_path, style: "color: white;" %></span>
         <span class="label label-primary"> <%= link_to "Analytics Dashboard", admin_analytics_dashboard_path, style: "color: white;" %></span>
         <span class="label label-primary"> <%= link_to "Edit Account", edit_admin_user_path(current_user), style: "color: white;" %></span>
+        <span class="label label-primary"> <%= link_to "Create Dog", new_admin_dog_path, style: "color: white;" %></span>
         </div>
     </div>
 </div>
@@ -33,15 +34,7 @@
             <li class="list-group-item">Role: <%= current_user.role %></li>
 
           </ul>
-          <div class="">
 
-            <%= form_for(@search, url: admin_dashboard_path, method: :get) do |f| %>
-              <%= f.label :status, "Sort Orders by Status" %>
-              <%= f.select :status, order_status_collection %>
-
-              <%= f.submit "Search" %>
-            <% end %>
-          </div>
 
         </div>
         <div class="col-md-6">
@@ -83,7 +76,7 @@
 
 <div class="container">
     <div class="row">
-      <div class="col-xs-12">
+        <div class="col-xs-12">
         <h4>Adoption History</h4>
           <table class="table table-striped">
             <thead>
@@ -96,51 +89,32 @@
               </tr>
             </thead>
             <tbody>
-              <% if @orders.any? %>
-                <% @orders.each do |order| %>
+            <% @orders.each do |order| %>
 
-                  <tr>
-                    <td><%= link_to "Order #{order.id}", order_path(order) %></td>
-                    <td><%= order.status %></td>
-                    <% if order.status == "Paid" || order.status == "Ordered" %>
-                      <td><%= link_to "Cancel", admin_order_path(order, :order => {status: "Canceled"}), method: :put, confirm: "Are you sure?" %></td>
-                    <% else %>
-                      <td></td>
-                    <% end %>
-                    <% if order.status == "Ordered" %>
-                     <td><%= link_to "Mark as Paid", admin_order_path(order, :order => {status: "Paid"}), method: :put, confirm: "Are you sure?" %></td>
-                    <% else %>
-                      <td></td>
-                    <% end %>
-                    <% if order.status == "Paid" %>
-                      <td><%= link_to "Mark as Completed", admin_order_path(order, :order => {status: "Completed"}), method: :put, confirm: "Are you sure?" %></td>
-                    <% else %>
-                      <td></td>
-                    <% end %>
-                  </tr>
+              <tr>
+                <td><%= link_to "Order #{order.id}", order_path(order) %></td>
+                <td><%= order.status %></td>
+                <% if order.status == "Paid" || order.status == "Ordered" %>
+                  <td><%= link_to "Cancel", admin_order_path(order, :order => {status: "Canceled"}), method: :put, confirm: "Are you sure?" %></td>
+                <% else %>
+                  <td></td>
+                <% end %>
+                <% if order.status == "Ordered" %>
+                 <td><%= link_to "Mark as Paid", admin_order_path(order, :order => {status: "Paid"}), method: :put, confirm: "Are you sure?" %></td>
+                <% else %>
+                  <td></td>
+                <% end %>
+                <% if order.status == "Paid" %>
+                  <td><%= link_to "Mark as Completed", admin_order_path(order, :order => {status: "Completed"}), method: :put, confirm: "Are you sure?" %></td>
+                <% else %>
+                  <td></td>
+                <% end %>
+              </tr>
 
-                  <% end %>
-              <% else %>
-                <tr>
-                  <td>No Matches.</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              <% end %>
+             <% end %>
             </tbody>
           </table>
-      </div>
+
+        </div>
     </div>
 </div>
-
-
-<%= link_to "Create Dog", new_admin_dog_path %>
-
-
-
-
-
- 
-

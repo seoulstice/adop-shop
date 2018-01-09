@@ -33,14 +33,14 @@
                       <p><%= button_to "Remove Dog", cart_path(dog_id: dog.id), :class => 'btn btn-sm btn-warning', method: :delete, style: 'float:right;' %></p>
 
                       <p>Breed: <%= dog.breed %></p>
-                      <p>Price: $<%= dog.price %>.00</p>
+                      <p>Price: <%= number_to_currency(dog.price) %></p>
                       <%= form_tag(cart_path, method: :put) do %>
                         <%= label_tag "Quantity" %>
                         <%= number_field_tag("quantity", "#{quantity}", min: 1) %>
                         <%= hidden_field_tag :dog_id, dog.id %>
                         <%= submit_tag("Update Quantity", :class => 'btn btn-sm btn-primary') %>
                       <% end %>
-                      <p>Subtotal: $<%= dog.price * quantity %>.00</p>
+                      <p>Subtotal: <%= number_to_currency(dog.price * quantity) %></p>
                     </div>
 
               </div>
@@ -60,7 +60,7 @@
         <div class="col-xs-12">
 
         <div class="statcard p-a-md">
-          <h3 class="statcard-number">$<%= @cart.total_price %>.00</h3>
+          <h3 class="statcard-number"><%=number_to_currency(@cart.total_price) %></h3>
           <span class="statcard-desc">Total Price</span>
         </div>
 
@@ -77,20 +77,24 @@
         </div>
     </div>
 </div>
-<% end %>
-
-<% if @cart.contents.present? %>
-  <div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-          <p>
-          <%= button_to "Checkout", orders_path, :class => 'btn btn-primary', style: "float:right;" , method: :post %>
-          </p>
-        </div>
-    </div>
-  </div>
 <% else %>
-  <div class="">
 
-  </div>
+  <% if @cart.contents.present? %>
+    <div class="container">
+      <div class="row">
+          <div class="col-xs-12">
+            <p>
+            <%= button_to "Checkout", orders_path, :class => 'btn btn-primary', style: "float:right;" , method: :post %>
+            </p>
+          </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="">
+
+    </div>
+  <% end %>
+
 <% end %>
+
+
