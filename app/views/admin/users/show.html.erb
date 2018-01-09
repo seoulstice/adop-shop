@@ -26,14 +26,26 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-          <h4>Admin Info</h4>
-          <ul class="list-group">
-            <li class="list-group-item">Username: <%= current_user.username %></li>
-            <li class="list-group-item">Name: <%= current_user.name %></li>
-            <li class="list-group-item">Address: <%= current_user.address %></li>
-            <li class="list-group-item">Role: <%= current_user.role %></li>
 
-          </ul>
+          <h4>Admin Info</h4>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= current_user.username %></td>
+                <td><%= current_user.name %></td>
+                <td><%= current_user.name %></td>
+                <td><%= current_user.role %></td>
+              </tr>
+            </tbody>
+          </table>
 
 
         </div>
