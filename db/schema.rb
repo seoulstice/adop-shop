@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180108210846) do
+ActiveRecord::Schema.define(version: 20180109210553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20180108210846) do
     t.string "slug"
     t.boolean "retired", default: false
     t.string "image"
+    t.integer "retired_count", default: 0
   end
 
   create_table "order_dogs", force: :cascade do |t|
