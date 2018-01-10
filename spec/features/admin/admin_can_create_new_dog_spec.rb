@@ -18,7 +18,7 @@ describe 'When the Admin User navigates to dog new form' do
       select "Male", from: 'dog[gender]'
       fill_in "dog[description]", with: "Good with cats and kids."
       fill_in "dog[price]", with: 100
-      select category.title, from: "dog[category_id]"
+      select "#{category.title}", from: "dog[category_ids][]"
       click_link_or_button 'Create Dog'
 
       @dog = Dog.last

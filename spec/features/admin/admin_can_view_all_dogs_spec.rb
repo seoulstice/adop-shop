@@ -5,8 +5,8 @@ describe "when an admin visits the admin dashboard" do
     it "admin sees a table with all dog info" do
       admin = create(:user, role: 1)
       category = create(:category)
-      dog = create(:dog, category: category)
-      dog2 = create(:dog, category: category)
+      dog = create(:dog, category_ids: category.id)
+      dog2 = create(:dog, category_ids: category.id)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
@@ -29,8 +29,8 @@ describe "when an admin visits the admin dashboard" do
     it "admin can edit retired status on admin dog index page" do
       admin = create(:user, role: 1)
       category = create(:category)
-      dog = create(:dog, category: category)
-      dog2 = create(:dog, category: category)
+      dog = create(:dog, category_ids: category.id)
+      dog2 = create(:dog, category_ids: category.id)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
