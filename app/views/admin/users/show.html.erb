@@ -82,6 +82,12 @@
     </div>
 </div>
 
+<%= form_for(@search, url: admin_dashboard_path, method: :get) do |f| %>
+  <%= f.label :status, "Sort Orders by Status" %>
+  <%= f.select :status, order_status_collection %>
+
+  <%= f.submit "Search" %>
+<% end %>
 
 
 <div class="container">
