@@ -13,7 +13,7 @@ class Order < ApplicationRecord
   end
 
   def self.orders_by_state
-    where(status: "Completed").group(:state).count
+    where(status: "Completed").group(:state).order(:state).count
   end
 
   def self.arrange_states_by_order_count
