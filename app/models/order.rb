@@ -20,8 +20,6 @@ class Order < ApplicationRecord
     where(status: "Completed").group(:state).order("count_all DESC").count
   end
 
-
-
   def self.count_status
     count = Hash.new(0)
     count.merge(group(:status).count)

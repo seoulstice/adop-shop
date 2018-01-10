@@ -21,7 +21,6 @@ describe "As a logged in Admin User" do
     end
     it "they can edit account"do
       visit admin_dashboard_path
-      expect(page).to have_content("Unique3")
 
       click_link("Edit Account")
 
