@@ -6,8 +6,8 @@ describe "when an admin visits the order show page" do
     user = create(:user)
     order = create(:order, user: user)
     category = create(:category)
-    dog = create(:dog, category: category)
-    dog2 = create(:dog, category: category)
+    dog = create(:dog, category_ids: category.id)
+    dog2 = create(:dog, category_ids: category.id)
     order_dog = create(:order_dog, dog: dog, order: order, quantity: 2)
     order_dog2 = create(:order_dog, dog: dog2, order: order, quantity: 1)
 

@@ -44,9 +44,9 @@ describe "When an Admin User navigates to analytics dashboard" do
     visit admin_analytics_dashboard_path
     expect(page).to have_content("#{dog2.name}")
     expect(page).to have_content("#{dog3.name}")
-
-    expect(page).to have_content("Toy Fido3")
-    expect(page).to have_content("Working Dog Fido2")
+save_and_open_page
+    expect(page).to have_content("Toy Fido5")
+    expect(page).to have_content("Working Dog Fido4")
   end
 
   it "the Admin can see Retired Item analytics" do
