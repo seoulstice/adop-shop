@@ -82,8 +82,12 @@ describe "When an Admin User navigates to analytics dashboard" do
 
     visit admin_analytics_dashboard_path
 
-    expect(page).to have_content("MN: 1")
-    expect(page).to have_content("PA: 2")
-    expect(page).to have_content("CO: 3")
+    expect(page).to have_content("MN")
+    expect(page).to have_content("1")
+    expect(page).to have_content("PA")
+    expect(page).to have_content("2")
+    expect(page).to have_content("CO")
+    expect(page).to have_content("3")
+    
   end
 end
