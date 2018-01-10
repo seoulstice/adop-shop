@@ -12,7 +12,7 @@ class Dog < ApplicationRecord
 
   enum size: ["Small", "Medium", "Large"]
   enum gender: ["Male", "Female"]
-  
+
   scope :sort_dogs, -> {order(:name)}
 
   def self.highest_price_within_category
