@@ -135,7 +135,7 @@ Version 1.0
 
 ## Authors
 
-* **Tyler Marshall** [contact](https://github.com/tylermarshal)
+* **Tyler Madsen** [contact](https://github.com/tylermarshal)
 * **Nico Lewis** [contact](https://github.com/nico24687)
 * **Young Jung** [contact](https://github.com/seoulstice)
 
