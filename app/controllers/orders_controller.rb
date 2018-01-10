@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def index
-    if logged_in? == false 
+    if logged_in? == false
       render file: '/public/404'
     end
   end
@@ -16,7 +16,11 @@ class OrdersController < ApplicationController
 
   def create
     if logged_in?
-      @order = current_user.orders.new(purchaser: current_user.name, address: current_user.address)
+      @order = current_user.orders.new(purchaser: current_user.name,
+                                      address: current_user.address,
+                                      city: current_user.city,
+                                      state: current_user.state,
+                                      zipcode: current_user.zipcode)
       set_cart.contents.each do |dog, quantity|
         OrderDog.create(dog_id: dog.to_i, order: @order, quantity: quantity.to_i)
       end

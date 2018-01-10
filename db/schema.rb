@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180108210846) do
+ActiveRecord::Schema.define(version: 20180109221310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20180108210846) do
     t.string "slug"
     t.boolean "retired", default: false
     t.string "image"
+    t.integer "retired_count", default: 0
   end
 
   create_table "order_dogs", force: :cascade do |t|
@@ -62,6 +63,9 @@ ActiveRecord::Schema.define(version: 20180108210846) do
     t.string "purchaser"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
+    t.string "state"
+    t.integer "zipcode"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -74,6 +78,9 @@ ActiveRecord::Schema.define(version: 20180108210846) do
     t.string "address"
     t.string "name"
     t.integer "orders_count", default: 0
+    t.string "city"
+    t.string "state"
+    t.integer "zipcode"
     t.index ["orders_count"], name: "index_users_on_orders_count"
   end
 

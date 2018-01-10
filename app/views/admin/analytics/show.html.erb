@@ -1,4 +1,29 @@
 
 
+<p>User with most Orders : <%= @users.user_with_most_orders %></p>
 
-User with most Orders : <%= @users.user_with_most_orders %>
+<% @categories.each do |category| %>
+  <p>Most Expensive <%= category.title %>: <%= category.highest_price_item_per_category %></p>
+  <p><%= category.title %>: <%= category.orders_by_category %></p>
+<% end %>
+
+<% @dogs.each do |dog| %>
+  <% if dog.retired_count > 0 %>
+    <%= dog.name %>
+    <%= dog.retired %>
+    <%= dog.retired_count %>
+  <% end %>
+<% end %>
+
+<table>
+  <tr>
+    <th>State</th>
+    <th><%= link_to "Count", admin_analytics_dashboard_path(:sort => "count"), method: :get %></th>
+  </tr>
+<% @orders.each do |state, count| %>
+    <tr>
+      <td><%= state %></td>
+      <td><%= count %></td>
+    </tr>
+<% end %>
+</table>
