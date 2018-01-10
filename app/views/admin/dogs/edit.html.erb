@@ -1,34 +1,76 @@
-<%= form_for [:admin, @dog] do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <h1>Edit <%= @dog.name %></h1>
+          <p>Change the details below to make updates to <%= @dog.name %></p>
+        </div>
+    </div>
+</div>
 
-  <%= f.label :breed %>
-  <%= f.text_field :breed %>
 
-  <%= f.label :size %>
-  <%= f.select :size, [["Small", "Small"],["Medium", "Medium"], ["Large", "Large"]] %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <%= form_for [:admin, @dog] do |f| %>
 
-  <%= f.label :weight %>
-  <%= f.text_field :weight %>
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control" %>
 
-  <%= f.label :cat_friendly %>
-  <%= f.check_box :cat_friendly %>
+            <%= f.label :breed %>  
+            <%= f.text_field :breed, class: "form-control" %>
+   
+            <%= f.label :image %>
+            <%= f.file_field :image %>
+            
 
-  <%= f.label :gender %>
-  <%= f.select :gender, [["Male", "Male"],["Female", "Female"]] %>
+            <%= f.label :size %>
+            <%= f.select :size, [["Small", "Small"],["Medium", "Medium"], ["Large", "Large"]], {prompt: "Select a size"}, {class: "form-control"} %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+            <%= f.label :weight, "Weight (lbs)" %>
+            <%= f.number_field :weight, within: 1..300, class: "form-control", placeholder: "e.g. 50lbs" %>
 
-  <%= f.label :category_ids %>
-  <%= f.select :category_ids, categories_collection, {}, { :multiple => true, :size => 5 } %>
+            <p></p>
+ 
+            <%= f.label :cat_friendly %>
+            <%= f.check_box :cat_friendly %>
+            
+            <p></p>
 
-  <%= f.label :price %>
-  <%= f.text_field :price %>
 
-  <%= f.label :retired %>
-  <%= f.check_box :retired %>
+            <%= f.label :gender %>
+            <%= f.select :gender, [["Male", "Male"],["Female", "Female"]], {prompt: "Select a gender"}, {class: "form-control"} %>
 
-  <%= f.submit %>
-<% end %>
+            <%= f.label :description %>
+            <%= f.text_area :description, class: "form-control" %>
+
+            <p></p>
+
+            <%= f.label :category_ids,  "Type" %>
+            <%= f.select :category_ids, categories_collection, {}, { :multiple => true} %>
+
+            <p></p>
+
+            <%= f.label :price, "Price ($)" %>
+            <%= f.number_field :price, min: 0, class: "form-control", placeholder: "e.g. $50" %>
+
+            <%= f.label :retired %>
+            <%= f.check_box :retired %>
+
+            <%= f.submit "Create Dog", class: "btn btn-primary", style: 'float:right; margin-top: 40px; margin-bottom: 40px;'%>
+          <% end %>
+        
+        </div>
+         <div class="col-md-offset-2 col-md-4">
+         <p></p>
+          <div class="thumbnail" style="margin-top: 26px;">
+            <img src="https://image.ibb.co/eHGASR/undraw_girl_and_dog_yuhw.png" alt="...">
+          </div>
+          
+         </div>
+    </div>
+</div>
+
+
+
+

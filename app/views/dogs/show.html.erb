@@ -21,28 +21,28 @@
                 <div class="caption">
                   <div class="statcard wrapper p-a-md">
                     <div>
-                      <h3 class="statcard-number"><%= @dog.breed %></h3>
                       <span class="statcard-desc">Breed</span>
+                      <h3 class="statcard-number"><%= @dog.breed %></h3>
                     </div>
                     <div>
-                      <h3 class="statcard-number"><%= @dog.price %></h3>
                       <span class="statcard-desc">Price</span>
+                      <h3 class="statcard-number"><%= number_to_currency(@dog.price) %></h3>
                     </div>
                     <div>
-                      <h3 class="statcard-number"><%= @dog.size %></h3>
                       <span class="statcard-desc">Size</span>
+                      <h3 class="statcard-number"><%= @dog.size %></h3>
                     </div>
                     <div>
-                      <h3 class="statcard-number"><%= @dog.weight %></h3>
                       <span class="statcard-desc">Weight</span>
+                      <h3 class="statcard-number"><%= @dog.weight %></h3>
                     </div>
                     <div>
+                      <span class="statcard-desc">Like cats?</span>
                       <h3 class="statcard-number"><%= @dog.cat_friendly.to_s.capitalize %></h3>
-                      <span class="statcard-desc">Cat friendly?</span>
                     </div>
                     <div>
-                      <h3 class="statcard-number"><%= @dog.gender%></h3>
                       <span class="statcard-desc">Gender</span>
+                      <h3 class="statcard-number"><%= @dog.gender%></h3>
                     </div>
                       <% if @dog.retired? %>
                        
@@ -51,6 +51,9 @@
                       <% else %>
                         <p><%= button_to "Add Dog", carts_path(dog_id: @dog.id), :class => "btn btn-primary", style: "float:right;"%></p>
                       <% end %>
+                    <div>
+                     
+
                       <h6>About <%=@dog.name %><h6>
                       <p><%= @dog.description %></p>
 

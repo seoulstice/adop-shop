@@ -10,9 +10,9 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-md-4">
         
-          <%= form_for [:admin, @user] do |f| %>
+            <%= form_for [:admin, @user] do |f| %>
             <%= f.label :username %>
             <%= f.text_field :username, class: "form-control" %>
 
@@ -23,13 +23,23 @@
             <%= f.text_field :name, class: "form-control" %>
 
             <%= f.label :address %>
-            <%= f.text_field :address, class: "form-control" %>
+            <%= f.text_area :address, class: "form-control" %>
 
             <%= f.label :role %>
             <%= f.number_field :role, max: 1, class: "form-control" %>
 
             <%= f.submit "Edit Account", class: "btn btn-primary", style: 'float:right; margin-top: 40px;' %>
-          <% end %>
+            <% end %>
+
+        </div>
+         <div class="col-md-offset-2 col-md-4">
+          <p></p>
+           <div class="thumbnail" style="margin-top: 26px;">
+            <img src="https://image.ibb.co/by7Lu6/undraw_account_490v.png" alt="...">
+          </div>
+
+
+
 
         </div>
     </div>
