@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "a user can delete dogs from the cart" do
   before(:each) do
     @category = create(:category)
-    @dog = create(:dog, category_id: @category.id)
+    @dog = create(:dog, category_ids: @category.id)
   end
   it "removes the dog" do
     visit dogs_path
