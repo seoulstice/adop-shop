@@ -13,7 +13,7 @@ class Admin::DogsController < Admin::BaseController
     if dog_params.include?(:image)
        @dog = Dog.new(dog_params)
     else
-      @dog = Dog.new({image: "https://ibb.co/nrmV96"}.merge(dog_params))
+      @dog = Dog.new({image: "https://image.ibb.co/nNdMGm/dog_logo.jpg"}.merge(dog_params))
     end
 
     if @dog.save
