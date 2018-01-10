@@ -24,27 +24,30 @@
             <th>Price</th>
             <th>Subtotal</th>
             <th>Order Total</th>
+            <th>Updated At</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td><%= @order.user.name %></td>
+            <td><%= @order.user.address %></td>
+            <td><%= @order.created_at %></td>
+            <td><%= @order.status %></td>
+            <% total = 0.00 %>
+            <% @order.order_dogs.each do |order_dog|%>
+              <td><%= link_to "#{order_dog.dog.name}", dog_path(order_dog.dog.slug) %></td>
+              <td><%= order_dog.quantity %></td>
+              <td><%= number_to_currency(order_dog.dog.price) %></td>
+              <td><%= number_to_currency(total += order_dog.quantity.to_i  * order_dog.dog.price) %></td>
+              <td><%= number_to_currency(total) %> </td>
+              <% if order_dog.order.completed? %>
+                <td><%= order_dog.order.updated_at %></td>
+              <% end %>
+            <% end %>
+
           </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+        
+        
         </tbody>
       </table>
           

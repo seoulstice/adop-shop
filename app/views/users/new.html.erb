@@ -10,9 +10,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-12">
-
-
+        <div class="col-md-4">
+        
           <%= form_for @user do |f| %>
 
             <%= f.label :username %>
@@ -30,8 +29,6 @@
             <%= f.label :state %>
             <%= f.text_field :state, :class => "form-control", maxlength: 2 %>
 
-            <%= f.label :address %>
-            <%= f.text_field :address, :class => "form-control" %>
 
             <%= f.label :zipcode %>
             <%= f.number_field :zipcode, :class => "form-control", max: 99999 %>
@@ -42,6 +39,18 @@
             <%= f.submit 'Create Account ', :class => 'btn btn-sm btn-primary',style: 'float:right; margin-top: 40px;' %>
           <% end %>
 
+           </div>
+         <div class="col-md-offset-2 col-md-4">
+         <p></p>
+          <div class="thumbnail" style="margin-top: 26px;">
+            <img src="https://image.ibb.co/bRqhrm/undraw_setup_obqo.png" alt="...">
+          </div>
+
+        
+        
+        </div>
+    </div>
+</div>
 
 
 
