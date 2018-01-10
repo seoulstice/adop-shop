@@ -6,17 +6,19 @@
           <table class="table table-striped">
             <thead>
               <tr>
+                <th>Image</th>
                 <th>Name</th>
                 <th>Breed</th>
-                <th>Retired?</th>
+                <th>Retired</th>
                 <th>Edit</th>
-                <th>Update Retired</th>
+                <th>Change Status</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
             <% @dogs.each do |dog| %>
               <tr>
+                <td><img data-src="holder.js/100%x200" alt="100%x200" src= "https://images.unsplash.com/photo-1433162653888-a571db5ccccf?auto=format&fit=crop&w=1500&q=80" data-holder-rendered="true" style="height: auto; width:50px;"></td>
                 <td><%= link_to "#{dog.name}", dog_path(dog.slug) %></td>
                 <td><%= dog.breed %></td>
                 <td><%= dog.retired %></td>

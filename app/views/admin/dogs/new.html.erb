@@ -26,8 +26,8 @@
             <%= f.label :size %>
             <%= f.select :size, [["Small", "Small"],["Medium", "Medium"], ["Large", "Large"]], {prompt: "Select a size"}, {class: "form-control"} %>
 
-            <%= f.label :weight %>
-            <%= f.number_field :weight, within: 1..300, class: "form-control" %>
+            <%= f.label :weight, "Weight (lbs)" %>
+            <%= f.number_field :weight, within: 1..300, class: "form-control", placeholder: "e.g. 50lbs" %>
 
             <p></p>
  
@@ -50,8 +50,8 @@
 
             <p></p>
 
-            <%= f.label :price %>
-            <%= f.number_field :price, min: 0, class: "form-control" %>
+            <%= f.label :price, "Price ($)" %>
+            <%= f.number_field :price, min: 0, class: "form-control", placeholder: "e.g. $50" %>
 
             <%= f.label :retired %>
             <%= f.check_box :retired %>
