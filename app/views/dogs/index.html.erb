@@ -38,8 +38,11 @@
             <% @dogs.each do |dog| %>
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail">
-                <img data-src="holder.js/100%x200" alt="100%x200" src= "https://images.unsplash.com/photo-1433162653888-a571db5ccccf?auto=format&fit=crop&w=1500&q=80" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
-                <div class="caption">
+                <% if dog.image == nil %>
+                  <img data-src="holder.js/100%x200" alt="100%x200" src= "https://image.ibb.co/nNdMGm/dog_logo.jpg" data-holder-rendered="true" style="height: auto; width: 100%; display: block;">
+                <% else %>
+                  <%= image_tag dog.image, style: "height: 200px; width: 100%; display: block;" %>
+                <% end %>                <div class="caption">
                   <h3 id="thumbnail-label"><%= dog.name %></h3>
                   <p>Breed: <%= dog.breed %></p>
                   <p>Price: <%= number_to_currency(dog.price) %></p>

@@ -16,8 +16,11 @@
 
 
               <div class="thumbnail">
-                <img data-src="holder.js/100%x200" alt="100%x200" src= "https://images.unsplash.com/photo-1433162653888-a571db5ccccf?auto=format&fit=crop&w=1500&q=80" data-holder-rendered="true" style="height: auto; width: 100%; display: block;">
-                <%= image_tag @dog.image.small %>
+                <% if @dog.image == nil %>
+                  <img data-src="holder.js/100%x200" alt="100%x200" src= "https://image.ibb.co/nNdMGm/dog_logo.jpg" data-holder-rendered="true" style="height: auto; width: 100%; display: block;">
+                <% else %>
+                  <%= image_tag @dog.image, style: "height: auto; width: 100%; display: block;" %>
+                <% end %>
                 <div class="caption">
                   <div class="statcard wrapper p-a-md">
                     <div>
@@ -45,14 +48,14 @@
                       <h3 class="statcard-number"><%= @dog.gender%></h3>
                     </div>
                       <% if @dog.retired? %>
-                       
+
                         <p><%= link_to "Dog Retired", "#", :class => "btn btn-primary", style: "float:right; color: white;"%></p>
                         <br>
                       <% else %>
                         <p><%= button_to "Add Dog", carts_path(dog_id: @dog.id), :class => "btn btn-primary", style: "float:right;"%></p>
                       <% end %>
                     <div>
-                     
+
 
                       <h6>About <%=@dog.name %><h6>
                       <p><%= @dog.description %></p>

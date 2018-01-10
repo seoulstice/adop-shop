@@ -16,12 +16,11 @@
             <%= f.label :name %>
             <%= f.text_field :name, class: "form-control" %>
 
-            <%= f.label :breed %>  
+            <%= f.label :breed %>
             <%= f.text_field :breed, class: "form-control" %>
-   
-            <%= f.label :image %>
-            <%= f.file_field :image %>
-            
+
+            <%= f.label "Image (URL)" %>
+            <%= f.text_field :image, class: "form-control", placeholder: "e.g. https://images.unsplash.com/photo-1497491547929-f290ed8d32fc" %>
 
             <%= f.label :size %>
             <%= f.select :size, [["Small", "Small"],["Medium", "Medium"], ["Large", "Large"]], {prompt: "Select a size"}, {class: "form-control"} %>
@@ -30,10 +29,10 @@
             <%= f.number_field :weight, within: 1..300, class: "form-control", placeholder: "e.g. 50lbs" %>
 
             <p></p>
- 
+
             <%= f.label :cat_friendly %>
             <%= f.check_box :cat_friendly %>
-            
+
             <p></p>
 
 
@@ -58,19 +57,14 @@
 
             <%= f.submit "Create Dog", class: "btn btn-primary", style: 'float:right; margin-top: 40px; margin-bottom: 40px;'%>
           <% end %>
-        
+
         </div>
          <div class="col-md-offset-2 col-md-4">
          <p></p>
           <div class="thumbnail" style="margin-top: 26px;">
             <img src="https://image.ibb.co/eHGASR/undraw_girl_and_dog_yuhw.png" alt="...">
           </div>
-          
+
          </div>
     </div>
 </div>
-
-
-
-
-
