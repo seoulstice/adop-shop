@@ -4,7 +4,7 @@ describe "as a visitor when I have items in my cart" do
   context "the user visit the cart and is forced to sign up/in to checkout" do
     it "the user clicks checkout to create their order" do
       category = create(:category)
-      dog = create(:dog, category: category)
+      dog = create(:dog, category_ids: category.id)
 
 
       visit dogs_path
