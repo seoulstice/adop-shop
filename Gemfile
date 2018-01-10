@@ -35,11 +35,9 @@ gem 'jquery-ui-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-aws'
 gem 'mini_magick'
+gem 'aws-sdk-rails'
 gem 'figaro'
 gem 'bcrypt'
-
-gem 'aws-sdk-rails'
-
 gem 'searchlight'
 
 
