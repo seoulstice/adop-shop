@@ -55,6 +55,7 @@ end
 count = 0
 DOGS.each do |name|
   dog = Dog.create!(name: name, breed: BREED.sample, size: SIZE.sample, weight: rand(50..200), cat_friendly: CAT_FRIENDLY.sample, gender: GENDER.sample, description: "I LOVE HUMANS!", price: rand(200), image: IMAGES[count])
+  require "pry"; binding.pry
   rand(1..2).times do
     dog.categories << Category.all.sample
   end
