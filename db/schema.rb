@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180109221310) do
+ActiveRecord::Schema.define(version: 20180110215929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20180109221310) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.boolean "retired", default: false
-    t.string "image"
+    t.text "image"
     t.integer "retired_count", default: 0
   end
 
