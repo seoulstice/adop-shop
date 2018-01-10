@@ -17,7 +17,8 @@ describe "a user can sign up" do
 
           fill_in "user[username]", with: "puppypaws"
           fill_in "user[password]", with: "donothackin"
-          click_on "Create User"
+          
+          click_on "Create Account"
 
           
           user = User.last
