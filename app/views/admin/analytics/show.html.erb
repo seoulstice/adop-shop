@@ -15,6 +15,15 @@
   <% end %>
 <% end %>
 
-<% @orders.orders_by_state.each do |state, count| %>
-  <%= state %>: <%= count %>
+<table>
+  <tr>
+    <th>State</th>
+    <th><%= link_to "Count", admin_analytics_dashboard_path(:sort => "count"), method: :get %></th>
+  </tr>
+<% @orders.each do |state, count| %>
+    <tr>
+      <td><%= state %></td>
+      <td><%= count %></td>
+    </tr>
 <% end %>
+</table>
