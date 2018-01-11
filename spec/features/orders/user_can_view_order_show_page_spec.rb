@@ -5,7 +5,7 @@ describe "when a user visits the orders index" do
     it "sees order information for incomplete order" do 
       user = create(:user)
       category = create(:category)
-      dog = create(:dog, category: category)
+      dog = create(:dog, category_ids: category.id)
       order = create(:order, status: "Paid", updated_at: "2018-02-05 02:06:24 UTC", user: user)
       order_dog = create(:order_dog, dog: dog, order: order)
 
@@ -25,7 +25,7 @@ describe "when a user visits the orders index" do
      it "sees completed order information" do 
       user = create(:user)
       category = create(:category)
-      dog = create(:dog, category: category)
+      dog = create(:dog, category_ids: category.id)
       order = create(:order, status: "Completed", user: user)
       order_dog = create(:order_dog, dog: dog, order: order)
 

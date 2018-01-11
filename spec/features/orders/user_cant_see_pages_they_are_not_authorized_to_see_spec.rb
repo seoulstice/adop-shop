@@ -23,10 +23,9 @@ describe "a user visits the order show page" do
     order = create(:order, user: user)
 
     visit cart_path
-    click_button "Checkout"
-
-    expect(current_path).to eq(login_path)
-    
+ 
+    expect(page).to have_content("Login or Create Account to Checkout")
+   
   end
 end
 

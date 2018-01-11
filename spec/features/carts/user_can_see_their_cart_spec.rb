@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "when a user navigates to the cart show page" do
   it "sees their cart contents and total" do 
     category = create(:category)
-    dog = create(:dog, price: 100, category_id: category.id)
+    dog = create(:dog, price: 100, category_ids: category.id)
 
     visit dogs_path 
 
