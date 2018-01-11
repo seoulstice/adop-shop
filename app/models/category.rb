@@ -2,6 +2,7 @@ class Category < ApplicationRecord
   before_save :generate_slug
   has_many :dog_categories
   has_many :dogs, through: :dog_categories
+  scope :ordered_by_title, -> {order(:name)}
 
   def highest_price_item_per_category
     dogs.order("price DESC").first.name
@@ -10,6 +11,7 @@ class Category < ApplicationRecord
   def orders_by_category
     dogs.joins(:order_dogs).count(:order_id)
   end
+
 
   private
 
