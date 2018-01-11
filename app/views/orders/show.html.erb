@@ -9,52 +9,52 @@
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-
-          <table class="table table-striped">
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>Purchaser Name</th>
             <th>Purchaser Address</th>
-            <th>Order Date</th>
+            <th>Order Created</th>
             <th>Order Status</th>
             <th>Dog Name</th>
             <th>Quantity</th>
             <th>Price</th>
             <th>Subtotal</th>
-            <th>Order Total</th>
             <th>Updated At</th>
           </tr>
         </thead>
         <tbody>
+          <% total = 0.00 %>
+          <% @order.order_dogs.each do |order_dog|%>
           <tr>
             <td><%= @order.user.name %></td>
             <td><%= @order.user.address %></td>
             <td><%= @order.created_at %></td>
             <td><%= @order.status %></td>
-            <% total = 0.00 %>
-            <% @order.order_dogs.each do |order_dog|%>
-              <td><%= link_to "#{order_dog.dog.name}", dog_path(order_dog.dog.slug) %></td>
-              <td><%= order_dog.quantity %></td>
-              <td><%= number_to_currency(order_dog.dog.price) %></td>
-              <td><%= number_to_currency(total += order_dog.quantity.to_i  * order_dog.dog.price) %></td>
-              <td><%= number_to_currency(total) %> </td>
-              <% if order_dog.order.completed? %>
-                <td><%= order_dog.order.updated_at %></td>
-              <% end %>
+            <td><%= link_to "#{order_dog.dog.name}", dog_path(order_dog.dog.slug) %></td>
+            <td><%= order_dog.quantity %></td>
+            <td><%= number_to_currency(order_dog.dog.price) %></td>
+            <td><%= number_to_currency(order_dog.quantity.to_i  * order_dog.dog.price) %></td>
+            <% if order_dog.order.completed? %>
+              <td><%= order_dog.order.updated_at %></td>
+            <% else %>
+              <td></td>
             <% end %>
-
+            <% number_to_currency(total += order_dog.quantity.to_i  * order_dog.dog.price) %>
           </tr>
-
-
+          <% end %>
         </tbody>
       </table>
-
-
-
-
-
-        </div>
     </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Total: <td><%= number_to_currency(total) %> </td></h3>
+    </div>
+  </div>
 </div>
