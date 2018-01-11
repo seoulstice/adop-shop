@@ -12,12 +12,12 @@ describe "When the User navigates to Orders index" do
 
     visit orders_path
 
-   
+
     expect(page).to have_link("Order #{order.id}")
     expect(page).to have_content(order.status)
     expect(page).to have_content(order.address)
     expect(page).to have_content(order.purchaser)
-    expect(page).to have_content("01/10/18")
+    expect(page).to have_content("01/11/18")
 
     expect(page).to_not have_link("Order #{order2.id}")
   end
