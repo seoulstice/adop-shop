@@ -82,12 +82,18 @@
     </div>
 </div>
 
-<%= form_for(@search, url: admin_dashboard_path, method: :get) do |f| %>
-  <%= f.label :status, "Sort Orders by Status" %>
-  <%= f.select :status, order_status_collection %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <%= form_for(@search, url: admin_dashboard_path, method: :get) do |f| %>
+            <%= f.label :status, "Sort Orders by Status" %>
+            <%= f.select :status, order_status_collection %>
 
-  <%= f.submit "Search" %>
-<% end %>
+            <%= f.submit "Search" %>
+          <% end %>
+        </div>
+    </div>
+</div>
 
 
 <div class="container">
