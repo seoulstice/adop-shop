@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.order(:title)
+    @categories = Category.ordered_by_title
   end
 
 end
