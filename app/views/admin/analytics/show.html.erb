@@ -15,7 +15,7 @@
               <h3 class="panel-title"><strong>User with most Orders</strong></h3>
             </div>
             <div class="panel-body">
-              <%= @users.user_with_most_orders %>
+              <%= @users.user_with_most_orders.name %>
             </div>
           </div>
         </div>
@@ -32,14 +32,14 @@
                 <thead>
                   <tr>
                     <th scope="col">Category</th>
-                    <th scope="col">Number</th>
+                    <th scope="col">Dog</th>
                   </tr>
                 </thead>
                 <tbody>
                   <% @categories.each do |category| %>
                   <tr>
                     <td><%= category.title %></td>
-                    <td><%= category.orders_by_category %></td>
+                    <td><%= category.highest_price_item_per_category %></td>
                   </tr>
                   <% end %>
                 </tbody>

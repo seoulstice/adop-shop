@@ -10,12 +10,7 @@ class Admin::DogsController < Admin::BaseController
   end
 
   def create
-    if dog_params.include?(:image)
-       @dog = Dog.new(dog_params)
-    else
-      @dog = Dog.new({image: "https://ibb.co/nrmV96"}.merge(dog_params))
-    end
-
+    @dog = Dog.new(dog_params)
     if @dog.save
       params[:dog][:category_ids].drop(1).each do |category_id|
         @dog.dog_categories.create(category_id: category_id)

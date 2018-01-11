@@ -6,7 +6,7 @@ class User < ApplicationRecord
   enum role: ["default", "admin"]
 
   def self.user_with_most_orders
-    order("orders_count DESC").limit(1).first.name
+    order("orders_count DESC").limit(1).first
   end
 
   def capitalize_state

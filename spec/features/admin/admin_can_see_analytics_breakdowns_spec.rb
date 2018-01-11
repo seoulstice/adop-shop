@@ -42,12 +42,11 @@ describe "When an Admin User navigates to analytics dashboard" do
     order_dog3 = create(:order_dog, dog: dog3, order: order2)
 
     visit admin_analytics_dashboard_path
-
-    expect(page).to have_content("Most Expensive Working Dog: #{dog2.name}")
-    expect(page).to have_content("Most Expensive Toy: #{dog3.name}")
-
-    expect(page).to have_content("Toy: 1")
-    expect(page).to have_content("Working Dog: 2")
+    expect(page).to have_content("#{dog2.name}")
+    expect(page).to have_content("#{dog3.name}")
+save_and_open_page
+    expect(page).to have_content("Toy Fido5")
+    expect(page).to have_content("Working Dog Fido4")
   end
 
   it "the Admin can see Retired Item analytics" do
@@ -88,6 +87,6 @@ describe "When an Admin User navigates to analytics dashboard" do
     expect(page).to have_content("2")
     expect(page).to have_content("CO")
     expect(page).to have_content("3")
-    
+
   end
 end

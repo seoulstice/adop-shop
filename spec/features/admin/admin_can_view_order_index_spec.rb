@@ -9,8 +9,8 @@ describe "When an Admin user visits dashboard" do
     order = create(:order, user: user, status: "Paid")
     order2 = create(:order, user: user2)
     order3 = create(:order, user: user2)
-    dog = create(:dog, category: category)
-    dog2 = create(:dog, category: category)
+    dog = create(:dog, category_ids: category.id)
+    dog2 = create(:dog, category_ids: category.id)
     create(:order_dog, dog: dog, order: order, quantity: 2)
     create(:order_dog, dog: dog2, order: order, quantity: 1)
     create(:order_dog, dog: dog, order: order2, quantity: 4)
@@ -25,8 +25,8 @@ describe "When an Admin user visits dashboard" do
     expect(page).to have_link("Order #{order.id}")
     expect(page).to have_link("Order #{order2.id}")
     expect(page).to have_link("Order #{order3.id}")
-    expect(page).to have_content("Paid: 1")
-    expect(page).to have_content("Ordered: 2")
+    expect(page).to have_content("Paid 1")
+    expect(page).to have_content("Ordered 2")
 
     click_link("Cancel", match: :first)
 
