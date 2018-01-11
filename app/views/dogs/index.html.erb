@@ -42,7 +42,8 @@
                   <img data-src="holder.js/100%x200" alt="100%x200" src= "https://image.ibb.co/nNdMGm/dog_logo.jpg" data-holder-rendered="true" style="height: auto; width: 100%; display: block;">
                 <% else %>
                   <%= image_tag dog.image, style: "height: 200px; width: 100%; display: block;" %>
-                <% end %>                <div class="caption">
+                <% end %>
+                <div class="caption">
                   <h3 id="thumbnail-label"><%= dog.name %></h3>
                   <p>Breed: <%= dog.breed %></p>
                   <p>Price: <%= number_to_currency(dog.price) %></p>

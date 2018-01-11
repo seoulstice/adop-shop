@@ -18,7 +18,11 @@
             <tbody>
             <% @dogs.each do |dog| %>
               <tr>
-                <td><img data-src="holder.js/100%x200" alt="100%x200" src= "https://images.unsplash.com/photo-1433162653888-a571db5ccccf?auto=format&fit=crop&w=1500&q=80" data-holder-rendered="true" style="height: auto; width:50px;"></td>
+                <% if dog.image == nil %>
+                  <td><img data-src="holder.js/100%x200" alt="100%x200" src= "https://image.ibb.co/nNdMGm/dog_logo.jpg" data-holder-rendered="true" style="height: auto; width: 100%; display: block;"></td>
+                <% else %>
+                  <td><%= image_tag dog.image, style: "height: 200px; width: 100%; display: block;" %></td>
+                <% end %>  
                 <td><%= link_to "#{dog.name}", dog_path(dog.slug) %></td>
                 <td><%= dog.breed %></td>
                 <td><%= dog.retired %></td>
@@ -26,12 +30,12 @@
                 <td>
                   <%= form_for [:admin, dog] do |f| %>
 
-                   
+
                     <%= f.check_box :retired %>
                     </td>
                     <td>
                     <%= f.submit "Update Status", class: "btn btn-sm btn-primary" %>
-                
+
                   <% end %>
                 </td>
               </tr>
@@ -43,8 +47,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-
