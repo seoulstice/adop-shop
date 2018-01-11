@@ -11,26 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-        
-            <%= form_for [:admin, @user] do |f| %>
-            <%= f.label :username %>
-            <%= f.text_field :username, class: "form-control" %>
-
-            <%= f.label :password %>
-            <%= f.text_field :password, class: "form-control" %>
-
-            <%= f.label :name %>
-            <%= f.text_field :name, class: "form-control" %>
-
-            <%= f.label :address %>
-            <%= f.text_area :address, class: "form-control" %>
-
-            <%= f.label :role %>
-            <%= f.number_field :role, max: 1, class: "form-control" %>
-
-            <%= f.submit "Edit Account", class: "btn btn-primary", style: 'float:right; margin-top: 40px;' %>
-            <% end %>
-
+          <%= render partial: "form" %>  
         </div>
          <div class="col-md-offset-2 col-md-4">
           <p></p>
@@ -44,4 +25,3 @@
         </div>
     </div>
 </div>
-
