@@ -1,7 +1,7 @@
 class DogsController < ApplicationController
 
   def index
-    @dogs = Dog.order(:name)
+    @dogs = Dog.sort_dogs
   end
 
   def show
