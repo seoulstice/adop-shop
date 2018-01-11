@@ -19,10 +19,10 @@
             <% @dogs.each do |dog| %>
               <tr>
                 <% if dog.image == nil %>
-                  <td><img data-src="holder.js/100%x200" alt="100%x200" src= "https://image.ibb.co/nNdMGm/dog_logo.jpg" data-holder-rendered="true" style="height: auto; width: 100%; display: block;"></td>
+                  <td><img data-src="holder.js/100%x200" alt="100%x200" src= "https://image.ibb.co/nNdMGm/dog_logo.jpg" data-holder-rendered="true" style="height: auto; width: 50px; display: block;"></td>
                 <% else %>
                   <td><%= image_tag dog.image, style: "height: 200px; width: 100%; display: block;" %></td>
-                <% end %>  
+                <% end %>
                 <td><%= link_to "#{dog.name}", dog_path(dog.slug) %></td>
                 <td><%= dog.breed %></td>
                 <td><%= dog.retired %></td>
