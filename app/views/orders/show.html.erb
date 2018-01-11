@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-        
+
           <table class="table table-striped">
         <thead>
           <tr>
@@ -46,41 +46,15 @@
             <% end %>
 
           </tr>
-        
-        
+
+
         </tbody>
       </table>
-          
-        
-        
-        
-        
+
+
+
+
+
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-  Purchaser Name: <%= @order.user.name %>
-  Purchaser Address: <%= @order.user.address %>
-  Order Date: <%= @order.created_at %>
-  Order Status: <%= @order.status %>
-
-  <% total = 0.00 %>
-  <% @order.order_dogs.each do |order_dog|%>
-    Dog Name: <%= link_to "#{order_dog.dog.name}", dog_path(order_dog.dog.slug) %>
-    Quantity: <%= order_dog.quantity %>
-    Price: <%= number_to_currency(order_dog.dog.price) %>
-    Subtotal: <%= number_to_currency(total += order_dog.quantity.to_i  * order_dog.dog.price) %>
-
-    <% if order_dog.order.completed? %>
-      Updated at:<%= order_dog.order.updated_at %>
-    <% end %>
-
-  <% end %>
-
-Order Total: <%= number_to_currency(total) %>  
